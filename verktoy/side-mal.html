@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>linkmldemo: begreper, modeller og hjemler</title>
+<style>
+:root{--bg:#f7f6f2;--kort:#fff;--tekst:#1d1d1b;--svak:#6b6a65;--linje:#dedbd2;--aksent:#1f4e79;--rod:#a8322d;--gul:#b7791f}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--tekst)}
+header{padding:18px 24px 0;border-bottom:1px solid var(--linje);background:var(--kort)}
+h1{font-size:20px;margin:0 0 4px}
+.under{color:var(--svak);font-size:13px;margin:0 0 12px}
+.utkast{display:inline-block;background:#fdf1d8;color:#7a4f0a;border-radius:4px;padding:1px 8px;font-size:12px;margin-left:8px;vertical-align:2px}
+nav{display:flex;gap:4px}
+nav button{border:0;background:none;padding:10px 14px;font:inherit;color:var(--svak);cursor:pointer;border-bottom:3px solid transparent}
+nav button.valgt{color:var(--tekst);border-bottom-color:var(--aksent);font-weight:600}
+main{padding:20px 24px}
+.fane{display:none}.fane.valgt{display:block}
+.rad{display:flex;gap:20px;align-items:flex-start}
+#kart{flex:1;min-width:0;background:var(--kort);border:1px solid var(--linje);border-radius:8px;position:relative}
+#kart svg{width:100%;height:640px;display:block;cursor:grab}
+#panel{width:360px;flex:none;background:var(--kort);border:1px solid var(--linje);border-radius:8px;padding:16px;max-height:700px;overflow:auto}
+#panel h2{font-size:18px;margin:0 0 2px}
+.id{font-family:ui-monospace,monospace;font-size:12px;color:var(--svak)}
+.etikett{display:inline-block;font-size:12px;border-radius:10px;padding:1px 8px;margin:2px 4px 2px 0;background:#eeece6}
+.sens{background:#f6dedc;color:var(--rod)}
+.usikker{background:#fdf1d8;color:#7a4f0a}
+h3{font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--svak);margin:16px 0 6px}
+ul.liste{margin:0;padding-left:18px}ul.liste li{margin:2px 0}
+a{color:var(--aksent)}
+.lenke{color:var(--aksent);cursor:pointer;text-decoration:underline}
+.eiere{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.eier{display:flex;align-items:center;gap:6px;border:1px solid var(--linje);background:var(--kort);border-radius:16px;padding:4px 12px 4px 8px;cursor:pointer;font:inherit;font-size:13px}
+.eier .prikk{width:12px;height:12px;border-radius:50%}
+.eier.av{opacity:.35}
+.verktoy{display:flex;gap:16px;align-items:center;margin-bottom:10px;font-size:13px;color:var(--svak)}
+input[type=search],select{font:inherit;padding:6px 10px;border:1px solid var(--linje);border-radius:6px;background:var(--kort)}
+.sporsmal{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-bottom:16px}
+.sp{background:var(--kort);border:1px solid var(--linje);border-radius:8px;padding:12px 14px;cursor:pointer;text-align:left;font:inherit}
+.sp:hover,.sp.valgt{border-color:var(--aksent)}
+.sp b{display:block;margin-bottom:2px}.sp span{font-size:13px;color:var(--svak)}
+#svar{background:var(--kort);border:1px solid var(--linje);border-radius:8px;padding:16px 18px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--linje);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--svak)}
+.merk{font-size:13px;color:var(--svak);margin-top:12px}
+.tall{display:flex;gap:12px;margin-bottom:16px}
+.tall div{background:var(--kort);border:1px solid var(--linje);border-radius:8px;padding:12px 16px;min-width:150px}
+.tall b{display:block;font-size:24px}
+.node text{font-size:11px;pointer-events:none;fill:var(--tekst)}
+@media (max-width:900px){.rad{flex-direction:column}#panel{width:100%}}
+</style>
+</head>
+<body>
+<header>
+  <h1>Statsborgerskap: begreper, modeller og hjemler <span class="utkast">Foreløpig utkast, fiktive begrepseiere</span></h1>
+  <p class="under">Bygget automatisk fra repoet. Ingen begreper eller hjemler her er faglig eller juridisk godkjent.</p>
+  <nav>
+    <button data-fane="kartfane" class="valgt">Begrepskart</button>
+    <button data-fane="spor">Spør regelverket</button>
+    <button data-fane="kontroll">Kontroll</button>
+  </nav>
+</header>
+<main>
+<section id="kartfane" class="fane valgt">
+  <div class="eiere" id="eiere"></div>
+  <div class="verktoy">
+    <input type="search" id="sok" placeholder="Søk etter begrep">
+    <label><input type="checkbox" id="kryss"> Vis bare relasjoner på tvers av eiere</label>
+    <span>Rød ring: sensitiv opplysning. Klikk et begrep for detaljer.</span>
+  </div>
+  <div class="rad">
+    <div id="kart"><svg id="svg"></svg></div>
+    <aside id="panel"><p class="merk">Velg et begrep i kartet for å se definisjonen, hvem som eier det, og hvilke modeller og hjemler som bruker det.</p></aside>
+  </div>
+</section>
+<section id="spor" class="fane">
+  <div class="sporsmal" id="sporsmal"></div>
+  <div id="svar"><p class="merk">Velg et spørsmål.</p></div>
+</section>
+<section id="kontroll" class="fane"></section>
+</main>
+<script>
+const D = /*DATA*/null;
+const FARGER = ['#1f4e79','#2e7d4f','#7b4fa0','#b7791f','#287f8f','#8a5a44'];
+const EIER = {}; D.eiere.forEach((e,i)=>EIER[e.id]={...e,farge:FARGER[i%FARGER.length]});
+const BEG = {}; D.begreper.forEach(b=>BEG[b.id]=b);
+const EXT = {}; D.eksterne.forEach(e=>EXT[e.id]=e);
+const term = i => BEG[i]?BEG[i].term:(EXT[i]?EXT[i].term:i);
+const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const RELNAVN = {generisk:'er en type av',partitiv:'er del av',assosiativ:'har relasjon til',naer:'nærliggende',se_ogsa:'se også'};
+const SAKNAVN = n => (Object.values(D.skjemaer).find(s=>s.sak===n)||{}).tittel||n;
+
+// ---------- faner ----------
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('valgt',x===b));
+  document.querySelectorAll('.fane').forEach(f=>f.classList.toggle('valgt',f.id===b.dataset.fane));
+});
+
+// ---------- begrepskart ----------
+const av = new Set();
+const ee = document.getElementById('eiere');
+D.eiere.forEach(e=>{
+  const n = D.begreper.filter(b=>b.eier===e.id).length;
+  const k = document.createElement('button'); k.className='eier';
+  k.innerHTML = `<span class="prikk" style="background:${EIER[e.id].farge}"></span>${esc(e.navn)} <span style="color:var(--svak)">${n}</span>`;
+  k.onclick = ()=>{ av.has(e.id)?av.delete(e.id):av.add(e.id); k.classList.toggle('av'); tegn(); };
+  ee.appendChild(k);
+});
+const noder = D.begreper.map((b,i)=>({...b,x:Math.cos(i)*200+450,y:Math.sin(i)*200+320,vx:0,vy:0}));
+const N = {}; noder.forEach(n=>N[n.id]=n);
+const kanter = [];
+noder.forEach(n=>n.rel.forEach(([t,m])=>{ if(N[m]) kanter.push({a:n,b:N[m],t,kryss:n.eier!==N[m].eier}); }));
+// gruppesentre per eier
+const sentre = {}; D.eiere.forEach((e,i)=>{const v=i/D.eiere.length*Math.PI*2; sentre[e.id]={x:450+Math.cos(v)*330,y:320+Math.sin(v)*250};});
+for(let it=0;it<400;it++){
+  const k = 1-it/400;
+  for(let i=0;i<noder.length;i++)for(let j=i+1;j<noder.length;j++){
+    const a=noder[i],b=noder[j]; let dx=a.x-b.x,dy=a.y-b.y,d2=dx*dx+dy*dy+.01; if(d2>40000)continue;
+    const f=260/d2; a.vx+=dx*f;a.vy+=dy*f;b.vx-=dx*f;b.vy-=dy*f;
+  }
+  kanter.forEach(e=>{if(e.kryss)return;const dx=e.b.x-e.a.x,dy=e.b.y-e.a.y,d=Math.sqrt(dx*dx+dy*dy)+.01,f=(d-70)*.01;e.a.vx+=dx/d*f*d*.05;e.a.vy+=dy/d*f*d*.05;e.b.vx-=dx/d*f*d*.05;e.b.vy-=dy/d*f*d*.05;});
+  noder.forEach(n=>{const s=sentre[n.eier];n.vx+=(s.x-n.x)*.05;n.vy+=(s.y-n.y)*.05;n.x+=n.vx*k*.5;n.y+=n.vy*k*.5;n.vx*=.6;n.vy*=.6;});
+}
+const svg = document.getElementById('svg'); const NS='http://www.w3.org/2000/svg';
+let vb = {x:0,y:0,w:900,h:640};
+const xs=noder.map(n=>n.x),ys=noder.map(n=>n.y);
+vb={x:Math.min(...xs)-60,y:Math.min(...ys)-40,w:Math.max(...xs)-Math.min(...xs)+120,h:Math.max(...ys)-Math.min(...ys)+80};
+const setVB=()=>svg.setAttribute('viewBox',`${vb.x} ${vb.y} ${vb.w} ${vb.h}`); setVB();
+let valgt=null;
+function tegn(){
+  svg.innerHTML='';
+  const q=document.getElementById('sok').value.toLowerCase(), kun=document.getElementById('kryss').checked;
+  const g=document.createElementNS(NS,'g'); svg.appendChild(g);
+  D.eiere.forEach(e=>{const ns=noder.filter(n=>n.eier===e.id);if(!ns.length)return;
+    const t=document.createElementNS(NS,'text');t.setAttribute('x',ns.reduce((a,n)=>a+n.x,0)/ns.length);t.setAttribute('y',Math.min(...ns.map(n=>n.y))-16);
+    t.setAttribute('text-anchor','middle');t.setAttribute('font-size',14);t.setAttribute('font-weight',700);t.setAttribute('fill',EIER[e.id].farge);
+    t.setAttribute('opacity',av.has(e.id)?.15:.9);t.textContent=e.navn;g.appendChild(t);});
+  kanter.forEach(e=>{
+    if(kun&&!e.kryss)return;
+    const synlig=!av.has(e.a.eier)&&!av.has(e.b.eier);
+    const l=document.createElementNS(NS,'line');
+    Object.entries({x1:e.a.x,y1:e.a.y,x2:e.b.x,y2:e.b.y}).forEach(([k,v])=>l.setAttribute(k,v));
+    const aktiv=valgt&&(e.a.id===valgt||e.b.id===valgt);
+    l.setAttribute('stroke',aktiv?'#1d1d1b':(e.kryss?'#8a8577':'#cfcbc0'));
+    l.setAttribute('stroke-width',aktiv?2:(e.kryss?1.4:1));
+    if(e.t==='assosiativ')l.setAttribute('stroke-dasharray','4 3');
+    l.setAttribute('opacity',synlig?1:.08); g.appendChild(l);
+  });
+  noder.forEach(n=>{
+    const synlig=!av.has(n.eier), treff=q&&(n.term.toLowerCase().includes(q)||n.id.includes(q));
+    const gg=document.createElementNS(NS,'g'); gg.setAttribute('class','node'); gg.setAttribute('transform',`translate(${n.x},${n.y})`);
+    gg.setAttribute('opacity',synlig?(q&&!treff?.25:1):.1); gg.style.cursor='pointer';
+    const c=document.createElementNS(NS,'circle'); c.setAttribute('r',n.id===valgt?9:6+Math.min(n.bruk.length,8)*.4);
+    c.setAttribute('fill',EIER[n.eier].farge);
+    if(n.sensitiv){c.setAttribute('stroke','#a8322d');c.setAttribute('stroke-width',3);}
+    else if(n.id===valgt){c.setAttribute('stroke','#1d1d1b');c.setAttribute('stroke-width',2);}
+    else {c.setAttribute('stroke','#fff');c.setAttribute('stroke-width',1.5);}
+    const t=document.createElementNS(NS,'text'); t.setAttribute('x',10); t.setAttribute('y',4); t.textContent=n.term;
+    if(n.id===valgt||treff)t.setAttribute('font-weight','700');
+    gg.append(c,t); gg.onclick=ev=>{ev.stopPropagation();vis(n.id);}; g.appendChild(gg);
+  });
+}
+// panorering og zoom
+let drag=null;
+svg.addEventListener('mousedown',e=>{drag={x:e.clientX,y:e.clientY,vx:vb.x,vy:vb.y};svg.style.cursor='grabbing';});
+window.addEventListener('mouseup',()=>{drag=null;svg.style.cursor='grab';});
+window.addEventListener('mousemove',e=>{if(!drag)return;const s=vb.w/svg.clientWidth;vb.x=drag.vx-(e.clientX-drag.x)*s;vb.y=drag.vy-(e.clientY-drag.y)*s;setVB();});
+svg.addEventListener('wheel',e=>{e.preventDefault();const f=e.deltaY>0?1.12:1/1.12;const r=svg.getBoundingClientRect();const px=vb.x+(e.clientX-r.left)/r.width*vb.w,py=vb.y+(e.clientY-r.top)/r.height*vb.h;vb.w*=f;vb.h*=f;vb.x=px-(px-vb.x)*f;vb.y=py-(py-vb.y)*f;setVB();},{passive:false});
+document.getElementById('sok').oninput=tegn; document.getElementById('kryss').onchange=tegn;
+
+function brukListe(bruk){
+  const grp={}; bruk.forEach(([h,w])=>(grp[h]=grp[h]||[]).push(w));
+  const navn={begrep:'Begreper',klasse:'Klasser i modellene',felt:'Felt i modellene',kodeliste:'Kodelister',kodeverdi:'Kodeverdier',hjemmel:'Hjemler'};
+  return Object.entries(grp).map(([h,ws])=>`<h3>${navn[h]||h}</h3><ul class="liste">${ws.map(w=>{
+    const id=w.split(' ')[0]; return `<li>${BEG[id]?`<span class="lenke" data-b="${id}">${esc(term(id))}</span> <span class="id">${esc(w.slice(id.length))}</span>`:esc(w)}</li>`;}).join('')}</ul>`).join('');
+}
+function vis(id){
+  valgt=id; tegn(); const b=BEG[id], p=document.getElementById('panel');
+  if(!b){p.innerHTML='';return;}
+  const e=EIER[b.eier];
+  const andre=new Set(); b.bruk.forEach(([h,w])=>{const x=BEG[w.split(' ')[0]]; if(h==='begrep'&&x&&x.eier!==b.eier)andre.add(x.eier);});
+  b.rel.forEach(([t,m])=>{if(BEG[m]&&BEG[m].eier!==b.eier)andre.add(BEG[m].eier);});
+  p.innerHTML=`<h2>${esc(b.term)}</h2><div class="id">${esc(b.id)}</div>
+   <p>${esc(b.def)}</p>
+   <div><span class="etikett" style="background:${e.farge};color:#fff">${esc(e.navn)}</span>
+   <span class="etikett ${b.status==='usikker'?'usikker':''}">status: ${esc(b.status)}</span>
+   ${b.sensitiv?'<span class="etikett sens">sensitiv opplysning</span>':''}</div>
+   <p class="merk">Endringer godkjennes av ${esc(e.github)} gjennom CODEOWNERS.${andre.size?` Begrepet henger sammen med begreper som eies av ${[...andre].map(x=>esc(EIER[x].navn)).join(', ')}. De varsles i konsekvensanalysen.`:''}</p>
+   ${b.rel.length?`<h3>Relasjoner</h3><ul class="liste">${b.rel.map(([t,m])=>`<li>${RELNAVN[t]||t} ${BEG[m]?`<span class="lenke" data-b="${m}">${esc(term(m))}</span>`:`${esc(term(m))} <span class="id">(ekstern)</span>`}</li>`).join('')}</ul>`:''}
+   ${b.bruk.length?brukListe(b.bruk):'<p class="merk">Ingenting bruker begrepet ennå.</p>'}`;
+  p.querySelectorAll('[data-b]').forEach(x=>x.onclick=()=>vis(x.dataset.b));
+}
+svg.addEventListener('click',()=>{valgt=null;tegn();});
+tegn();
+
+// ---------- spør regelverket ----------
+const saker=[...new Set(D.hjemler.flatMap(h=>h.saker))];
+const opps=[...new Set(D.hjemler.flatMap(h=>h.opp))].sort((a,b)=>term(a).localeCompare(term(b),'nb'));
+const velg=(id,valg)=>`<select id="${id}">${valg.map(([v,t])=>`<option value="${esc(v)}">${esc(t)}</option>`).join('')}</select>`;
+const SP=[
+ {t:'Hva kan UDI innhente i en sakstype?',u:'Opplysninger, fra hvem og etter hvilken bestemmelse',
+  p:()=>velg('p',saker.map(s=>[s,SAKNAVN(s)])),
+  s:s=>{const hs=D.hjemler.filter(h=>h.saker.includes(s)&&h.type.startsWith('INNHENTING'));const r={};
+   hs.forEach(h=>h.opp.forEach(o=>(r[o]=r[o]||[]).push(h)));
+   return `<p>${hs.length} hjemler gir anledning til å innhente opplysninger i <b>${esc(SAKNAVN(s))}</b>.</p><table><tr><th>Opplysning</th><th>Fra</th><th>Bestemmelse</th></tr>${
+    Object.entries(r).sort((a,b)=>term(a[0]).localeCompare(term(b[0]),'nb')).map(([o,hh])=>hh.map((h,i)=>`<tr>${i?'<td></td>':`<td rowspan="1"><b>${esc(term(o))}</b>${BEG[o]&&BEG[o].sensitiv?' <span class="etikett sens">sensitiv</span>':''}</td>`}<td>${esc(h.avgiver.join(', '))}</td><td><a href="${esc(h.url)}">${esc(h.best)}</a></td></tr>`).join('')).join('')}</table>`;}},
+ {t:'Hvilke hjemler gjelder en opplysning?',u:'Alt regelverket sier om én type opplysning',
+  p:()=>velg('p',opps.map(o=>[o,term(o)])),
+  s:o=>{const hs=D.hjemler.filter(h=>h.opp.includes(o));return `<p><b>${esc(term(o))}</b> er nevnt i ${hs.length} hjemler.</p><table><tr><th>Bestemmelse</th><th>Hva</th><th>Fra → til</th><th>Sakstyper</th></tr>${hs.map(h=>`<tr><td><a href="${esc(h.url)}">${esc(h.best)}</a></td><td>${esc(h.formal)}${h.vilkar?`<br><span class="merk">Vilkår: ${esc(h.vilkar)}</span>`:''}</td><td>${esc(h.avgiver.join(', '))} → ${esc(h.mottaker.join(', '))}</td><td>${h.saker.map(esc).join(', ')}</td></tr>`).join('')}</table>`;}},
+ {t:'Hvem må involveres hvis vi endrer et begrep?',u:'Begrepseier, og eierne av det som bruker begrepet',
+  p:()=>velg('p',D.begreper.slice().sort((a,b)=>a.term.localeCompare(b.term,'nb')).map(b=>[b.id,b.term])),
+  s:i=>{const b=BEG[i];const e=EIER[b.eier];const andre={};
+   b.bruk.forEach(([h,w])=>{const x=BEG[w.split(' ')[0]];if(h==='begrep'&&x&&x.eier!==b.eier)(andre[x.eier]=andre[x.eier]||[]).push(x.term);});
+   const mod=b.bruk.filter(([h])=>['felt','klasse','kodeliste','kodeverdi'].includes(h)).map(x=>x[1]);
+   const hj=b.bruk.filter(([h])=>h==='hjemmel').map(x=>x[1]);
+   return `<p><b>${esc(b.term)}</b> eies av <b>${esc(e.navn)}</b> (${esc(e.github)}), som må godkjenne endringen.</p>
+   ${Object.keys(andre).length?`<h3>Andre begrepseiere som bør varsles</h3><ul class="liste">${Object.entries(andre).map(([k,v])=>`<li>${esc(EIER[k].navn)}: ${v.map(esc).join(', ')}</li>`).join('')}</ul>`:'<p class="merk">Ingen andre begrepseiere bruker begrepet.</p>'}
+   ${mod.length?`<h3>Modeller som påvirkes</h3><ul class="liste">${mod.map(m=>`<li>${esc(m)}</li>`).join('')}</ul>`:''}
+   ${hj.length?`<h3>Hjemler som nevner begrepet</h3><ul class="liste">${hj.map(m=>`<li>${esc(m)}</li>`).join('')}</ul><p class="merk">Endringer som berører hjemler skal også ses av juridisk seksjon.</p>`:''}`;}},
+ {t:'Hvilke felt i modellene er sensitive?',u:'Og hvilken hjemmel dekker hvert av dem',
+  p:()=>'',
+  s:()=>`<table><tr><th>Felt</th><th>Opplysning</th><th>Hjemmel</th></tr>${D.kontroll.dekning.map(([f,o,h])=>`<tr><td><code>${esc(f)}</code></td><td>${esc(o)}</td><td>${h.length?h.map(esc).join('<br>'):'<b style="color:var(--rod)">ingen</b>'}</td></tr>`).join('')}</table><p class="merk">Kontrollen stopper en endring som legger til et sensitivt felt uten hjemmel for sakstypen.</p>`},
+ {t:'Hvem gir UDI opplysninger?',u:'Organer og hva de kan gi, etter hjemlene',
+  p:()=>'',
+  s:()=>{const r={};D.hjemler.filter(h=>h.type==='INNHENTING_FRA_ANDRE').forEach(h=>h.avgiver.forEach(a=>{(r[a]=r[a]||new Set());h.opp.forEach(o=>r[a].add(term(o)));}));
+   return `<table><tr><th>Organ</th><th>Opplysninger</th></tr>${Object.entries(r).sort((a,b)=>a[0].localeCompare(b[0],'nb')).map(([a,s])=>`<tr><td>${esc(a)}</td><td>${[...s].map(esc).join(', ')}</td></tr>`).join('')}</table>`;}},
+];
+const spe=document.getElementById('sporsmal'), svar=document.getElementById('svar');
+SP.forEach((q,i)=>{const b=document.createElement('button');b.className='sp';b.innerHTML=`<b>${esc(q.t)}</b><span>${esc(q.u)}</span>`;
+ b.onclick=()=>{spe.querySelectorAll('.sp').forEach(x=>x.classList.toggle('valgt',x===b));
+  const p=q.p(); svar.innerHTML=(p?`<p>${p}</p>`:'')+'<div id="ut"></div>';
+  const kjør=()=>{document.getElementById('ut').innerHTML=q.s(p?document.getElementById('p').value:null);};
+  if(p)document.getElementById('p').onchange=kjør; kjør();};
+ spe.appendChild(b);});
+svar.insertAdjacentHTML('afterend','<p class="merk">Svarene er hentet rett fra hjemmelslaget i repoet. Hjemlene er foreløpige og ikke juridisk vurdert.</p>');
+
+// ---------- kontroll ----------
+document.getElementById('kontroll').innerHTML=`<div class="tall"><div><b>${D.begreper.length}</b>begreper</div><div><b>${D.hjemler.length}</b>hjemler</div><div><b>${D.felt.length}</b>felt i modellene</div><div><b>${D.kontroll.feil}</b>feil</div><div><b>${D.kontroll.adv}</b>advarsler</div></div>
+<div id="svar"><h3 style="margin-top:0">Begrepseiere</h3><table><tr><th>Eier</th><th>GitHub</th><th>Begreper</th><th>Usikre</th><th>Brukt av andre eiere</th></tr>${D.eiere.map(e=>{const bs=D.begreper.filter(b=>b.eier===e.id);
+ const kr=bs.filter(b=>b.bruk.some(([h,w])=>h==='begrep'&&BEG[w.split(' ')[0]]&&BEG[w.split(' ')[0]].eier!==e.id)).length;
+ return `<tr><td><span class="prikk" style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${EIER[e.id].farge}"></span> ${esc(e.navn)}</td><td>${esc(e.github)}</td><td>${bs.length}</td><td>${bs.filter(b=>b.status==='usikker').length}</td><td>${kr}</td></tr>`;}).join('')}</table>
+<h3>Modelldokumentasjon (generert av LinkML)</h3><ul class="liste">${Object.entries(D.skjemaer).filter(([n,s])=>s.sak).map(([n,s])=>`<li><a href="modeller/${n}/index.html">${esc(s.tittel)}</a></li>`).join('')}</ul>
+<h3>Filer til data.norge</h3><ul class="liste"><li><a href="rdf/">Turtle-filer (SKOS-AP-NO, ModellDCAT-AP-NO, DPV)</a></li></ul>
+<p class="merk">Den fullstendige kontrollrapporten står i loggen til arbeidsflyten «Kontroll» på GitHub.</p></div>`;
+</script>
+</body>
+</html>

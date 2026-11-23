@@ -1,0 +1,24 @@
+# GENERERT av verktoy/codeowners.py fra konseptuelt/eiere.yaml. Ikke rediger for hånd.
+# Den siste regelen som treffer en fil, gjelder.
+
+*  @andreas25577
+/konfig/  @andreas25577
+/metaskjema/  @andreas25577
+/konseptuelt/hjemler/  @andreas25577
+
+# Seksjon for informasjonsforvaltning
+/konseptuelt/begreper/informasjonsforvaltning.yaml  @andreas25577
+# Fagenhet for vandel og sikkerhet
+/konseptuelt/begreper/vandel-og-sikkerhet.yaml  @andreas25577
+# Fagenhet for identitet
+/konseptuelt/begreper/identitet.yaml  @andreas25577
+# Fagenhet for statsborgerskap
+/konseptuelt/begreper/statsborgerskap.yaml  @andreas25577
+# Fagenhet for tap og tilbakekall
+/konseptuelt/begreper/tap-og-tilbakekall.yaml  @andreas25577
+
+# Logiske skjemaer eies av den som eier hovedbegrepet for sakstypen
+/logisk/felles.yaml  @andreas25577
+/logisk/statsborgerskap-melding.yaml  @andreas25577
+/logisk/statsborgerskap-tap.yaml  @andreas25577
+/logisk/statsborgerskap.yaml  @andreas25577

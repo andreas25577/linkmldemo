@@ -1,0 +1,18 @@
+name: Endring i regelverket
+description: En lov- eller forskriftsendring som kan påvirke hjemler, begreper eller modeller
+labels: [regelverk, juridisk]
+body:
+  - type: input
+    id: bestemmelse
+    attributes: {label: Bestemmelse, placeholder: "statsborgerforskriften § 14-8"}
+    validations: {required: true}
+  - type: input
+    id: lovdata
+    attributes: {label: Lenke til Lovdata}
+  - type: textarea
+    id: endring
+    attributes: {label: Hva er endret?}
+    validations: {required: true}
+  - type: input
+    id: ikraft
+    attributes: {label: Ikrafttredelse}

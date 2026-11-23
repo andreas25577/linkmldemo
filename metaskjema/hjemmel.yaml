@@ -1,0 +1,106 @@
+id: https://example.org/udi/linkmldemo/metaskjema/hjemmel
+name: hjemmel
+title: Hjemler for opplysninger
+description: >-
+  Metaskjema for hjemmelsfilene. Hver hjemmel er ett ledd i lov eller forskrift som gir adgang
+  til å hente inn, behandle eller utlevere opplysninger. Opplysningene peker på begreper.
+  RDF-utgaven bruker DPV (W3C Data Privacy Vocabulary) og ELI. Det er ikke en Digdir-spesifikasjon.
+license: CC-BY-4.0
+version: 0.1.0
+prefixes:
+  linkml: https://w3id.org/linkml/
+  dpv: https://w3id.org/dpv#
+  eli: http://data.europa.eu/eli/ontology#
+  udi: https://example.org/udi/linkmldemo/vokabular#
+default_prefix: udi
+default_range: string
+imports:
+  - linkml:types
+
+classes:
+  Hjemmelsfil:
+    tree_root: true
+    attributes:
+      lov:
+        required: true
+      lov_uri:
+        range: uri
+        required: true
+      forskrift_uri:
+        range: uri
+      aktorer:
+        range: Aktor
+        multivalued: true
+        inlined_as_list: true
+      hjemler:
+        range: Hjemmel
+        multivalued: true
+        inlined_as_list: true
+
+  Aktor:
+    attributes:
+      id:
+        identifier: true
+      navn:
+        required: true
+
+  Hjemmel:
+    class_uri: dpv:Process
+    attributes:
+      id:
+        identifier: true
+      bestemmelse:
+        required: true
+      lovdata:
+        description: Lenke til bestemmelsen på Lovdata. Lovdata bruker paragraftegnet i adressen, så feltet er tekst med mønster i stedet for uri.
+        range: string
+        pattern: '^https://lovdata\.no/(lov|forskrift)/\d{4}-\d{2}-\d{2}-\d+/§[0-9a-z-]+$'
+        required: true
+        slot_uri: dpv:hasLegalBasis
+      presiserer:
+        description: For en forskriftsbestemmelse, lovhjemmelen den utfyller.
+      type:
+        range: Hjemmeltype
+        required: true
+      avgiver:
+        range: Aktor
+        multivalued: true
+        required: true
+        slot_uri: dpv:hasDataSource
+      mottaker:
+        range: Aktor
+        multivalued: true
+        required: true
+        slot_uri: dpv:hasRecipient
+      formal:
+        required: true
+        slot_uri: dpv:hasPurpose
+      vilkar: {}
+      opplysninger:
+        multivalued: true
+        required: true
+        description: Begrep-ID-er (fe:, stb:, stbm:, stbt:) eller ext:nøkkel.
+        slot_uri: dpv:hasPersonalData
+      sakstyper:
+        multivalued: true
+        required: true
+      merknad: {}
+      status:
+        range: Hjemmelstatus
+        required: true
+
+enums:
+  Hjemmeltype:
+    description: Hva hjemmelen gir adgang til
+    permissible_values:
+      INNHENTING_FRA_UTLENDING: {description: innhenting fra den saken gjelder, meaning: dpv:Collect}
+      INNHENTING_FRA_ANDRE: {description: innhenting fra andre, meaning: dpv:Collect}
+      BEHANDLING: {description: behandling, meaning: dpv:Use}
+      UTLEVERING: {description: utlevering, meaning: dpv:Disclose}
+      SAERSKILT_UNDERSOKELSE: {description: særskilt undersøkelse, meaning: dpv:Collect}
+  Hjemmelstatus:
+    description: Hvor langt hjemmelen har kommet i den juridiske vurderingen
+    permissible_values:
+      forslag: {description: Utkast}
+      usikker: {description: Må vurderes}
+      godkjent: {description: Vurdert av jurist}

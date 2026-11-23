@@ -1,0 +1,25 @@
+# FORELØPIG UTKAST til demo. Begrepseierne er fiktive. Ikke godkjent faglig eller juridisk.
+samlinger:
+- id: felles
+  prefiks: fe
+  tittel:
+    nb: Felles begreper for UDI (utvalg til demo)
+  base: https://example.org/udi/felles/
+- id: statsborgerskap
+  prefiks: stb
+  tittel:
+    nb: Begreper for søknad om norsk statsborgerskap (utkast)
+    nn: Omgrep for søknad om norsk statsborgarskap (utkast)
+  base: https://example.org/udi/statsborgerskap/
+- id: statsborgerskap-melding
+  prefiks: stbm
+  tittel:
+    nb: Begreper for melding om norsk statsborgerskap (utkast)
+    nn: Omgrep for melding om norsk statsborgarskap (utkast)
+  base: https://example.org/udi/statsborgerskap-melding/
+- id: statsborgerskap-tap
+  prefiks: stbt
+  tittel:
+    nb: Begreper for tap av norsk statsborgerskap (utkast)
+    nn: Omgrep for tap av norsk statsborgarskap (utkast)
+  base: https://example.org/udi/statsborgerskap-tap/

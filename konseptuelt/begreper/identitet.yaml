@@ -1,0 +1,81 @@
+# FORELØPIG UTKAST til demo. Begrepseierne er fiktive. Ikke godkjent faglig eller juridisk.
+begreper:
+- id: fe:folkeregisteropplysninger
+  anbefalt_term:
+    nb: folkeregisteropplysninger
+    nn: folkeregisteropplysningar
+  definisjon: opplysninger om en person som er registrert i Folkeregisteret etter folkeregisterloven §§ 3-1 og 3-2
+  forhold_til_kilde: basert
+  kilde: utlendingsforskriften § 17-7j første ledd
+  merknad: Kan gjelde utlendingen, referansepersonen, vertsfamilien og en bred krets av familiemedlemmer. Gjenbrukssøket
+    i begrepskatalogen 2026-11-19 ga ingen treff
+  opphav: utf. § 17-7j, stbf. § 14-5
+  status: usikker
+  begrepseier: identitet
+  samling: felles
+  se_ogsa:
+  - fe:familierelasjon
+- id: fe:klarlagt-identitet
+  anbefalt_term:
+    nb: klarlagt identitet
+    nn: klarlagd identitet
+  definisjon: identitet der det er åpenbart at framlagt identitetsdokumentasjon viser personens rette identitet
+  forhold_til_kilde: basert
+  kilde: statsborgerforskriften § 1-1
+  merknad: Etter unntakene i forskriften §§ 1-2 og 1-3 kan identiteten anses klarlagt på annet grunnlag, blant annet
+    ved alminnelig sannsynlighetsovervekt. UDIs publiserte begrep sannsynliggjort identitet dekker det lavere beviskravet
+  opphav: stbl. § 7 første ledd bokstav a, forskriften § 1-1 (flyttet fra utkastet for statsborgerskap); også stbl.
+    § 22 a
+  status: forslag
+  begrepseier: identitet
+  samling: felles
+  se_ogsa:
+  - ext:sannsynliggjort-identitet
+  assosiativ:
+  - til: ext:identitetsdokument
+    rolle: dokumenteres med
+- id: fe:mote-og-opplysningsplikt
+  anbefalt_term:
+    nb: møte- og opplysningsplikt
+    nn: møte- og opplysingsplikt
+  definisjon: plikt for en utlending til å møte personlig og gi opplysninger som kan ha betydning for vedtaket i
+    en sak etter utlendingsloven
+  forhold_til_kilde: basert
+  kilde: utlendingsloven § 83 første ledd
+  merknad: Pålegges av politiet eller Utlendingsdirektoratet
+  opphav: utl. kap. 11 (opplysningskategori eller prosess som gjelder flere sakstyper)
+  status: forslag
+  begrepseier: identitet
+  samling: felles
+- id: fe:saerlige-kategorier-personopplysninger
+  anbefalt_term:
+    nb: særlige kategorier av personopplysninger
+    nn: særlege kategoriar av personopplysningar
+  definisjon: personopplysninger om blant annet helse, etnisk opprinnelse, religion, seksuell orientering og biometri,
+    og opplysninger om straffedommer og lovovertredelser
+  forhold_til_kilde: basert
+  kilde: utlendingsloven § 83 a, personvernforordningen artikkel 9 og 10
+  merknad: Utlendingsmyndighetene kan behandle slike opplysninger når det er nødvendig for å utøve myndighet etter
+    loven. Artikkel 10 gjelder strengt tatt straffedommer, som forordningen holder utenfor de særlige kategoriene
+  opphav: utl. kap. 11 (opplysningskategori eller prosess som gjelder flere sakstyper)
+  status: forslag
+  begrepseier: identitet
+  samling: felles
+  generisk:
+  - ext:personopplysninger
+- id: fe:statslos
+  anbefalt_term:
+    nb: statsløs
+    nn: statslaus
+  definisjon: som ikke er statsborger av noen stat
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 16
+  merknad: Statsløshet hindrer tap av norsk statsborgerskap etter flere bestemmelser. Den som selv har valgt statsløshet,
+    eller enkelt kan bli statsborger av et annet land, omfattes ikke av § 16. Gjenbrukssøket 2026-11-19 ga ingen
+    treff
+  opphav: stbl. §§ 6, 16, 24, 25 og 26
+  status: forslag
+  begrepseier: identitet
+  samling: felles
+  se_ogsa:
+  - ext:statsborgerskap

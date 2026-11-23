@@ -1,0 +1,115 @@
+# FORELØPIG UTKAST til demo. Begrepseierne er fiktive. Ikke godkjent faglig eller juridisk.
+begreper:
+- id: fe:etterforskningsopplysning
+  anbefalt_term:
+    nb: opplysning om etterforskning
+    nn: opplysning om etterforsking
+  definisjon: opplysning om at en person er under etterforskning for et straffbart forhold som kan få betydning
+    for en søknad
+  forhold_til_kilde: basert
+  kilde: utlendingsforskriften § 17-7i tredje ledd
+  merknad: Termen er et forslag. Brukes ved berostilling og utvisning av EØS-borgere. Politiet gir opplysningene
+    bare der etterforskningshensyn ikke taler mot
+  opphav: utf. § 17-7i tredje ledd, stbf. § 14-1 annet ledd
+  status: usikker
+  begrepseier: vandel-og-sikkerhet
+  samling: felles
+  naer:
+  - fe:vandelsopplysning
+- id: fe:forholdsmessighet
+  anbefalt_term:
+    nb: forholdsmessighet
+    nn: forholdsmessigheit
+  definisjon: krav om at et vedtak ikke er et uforholdsmessig inngrep overfor personen det gjelder eller de nærmeste
+    familiemedlemmene, sett i lys av forholdets alvor og personens tilknytning til riket
+  forhold_til_kilde: basert
+  kilde: utlendingsloven § 70 første ledd
+  merknad: Formuleringen er nesten lik i utlendingsloven § 70 og statsborgerloven §§ 26 til 26 b. I saker som berører
+    barn, skal barnets beste være et grunnleggende hensyn. Ved utvisning kan tilleggstid i visse tilfeller fastsettes
+    i stedet
+  opphav: utl. § 70 første ledd, stbl. §§ 26, 26 a og 26 b (flyttet fra utkastet for utvisning)
+  status: forslag
+  begrepseier: vandel-og-sikkerhet
+  samling: felles
+  assosiativ:
+  - til: fe:barnets-beste
+    rolle: skal vektlegge
+  - til: fe:tilleggstid
+    rolle: kan erstattes av
+- id: fe:grunnleggende-nasjonale-interesser
+  anbefalt_term:
+    nb: grunnleggende nasjonale interesser
+    nn: grunnleggjande nasjonale interesser
+  definisjon: hensyn til statens sikkerhet og andre vitale interesser som kan tale mot at en person får, får tilbake
+    eller beholder norsk statsborgerskap
+  forhold_til_kilde: egendefinert
+  merknad: Loven bruker uttrykket uten å definere det, ofte sammen med utenrikspolitiske hensyn. Avslag etter §
+    7 annet ledd treffes av departementet. Tilsvarende hensyn begrunner utvisning etter utl. § 126
+  opphav: stbl. §§ 7 annet ledd, 22 a og 26 b
+  status: usikker
+  begrepseier: vandel-og-sikkerhet
+  samling: felles
+- id: fe:karenstid
+  anbefalt_term:
+    nb: karenstid
+    nn: karenstid
+  tillatt_term:
+  - ventetid
+  definisjon: tidsrom som må gå etter at en straffereaksjon er ilagt før personen har rett til norsk statsborgerskap
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 9
+  merknad: Regnes fra den dag endelig dom er avsagt, ved forelegg fra vedtakelsen. Lengden avhenger av reaksjonen.
+    udi.no bruker ventetid
+  opphav: stbl. § 9, forskriften kap. 5 (flyttet fra utkastet for statsborgerskap)
+  status: forslag
+  begrepseier: vandel-og-sikkerhet
+  samling: felles
+- id: fe:politiattest
+  anbefalt_term:
+    nb: politiattest
+    nn: politiattest
+  definisjon: attest fra politiet om registrerte straffbare forhold om en person
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 7 fjerde ledd
+  merknad: 'Innholdet varierer: ved søknad om statsborgerskap skal den være uttømmende og vise forhold søkeren er
+    siktet eller tiltalt for, ved melding etter § 20 skal den vise frihetsstraff og særreaksjon de siste syv årene,
+    og ved gjenerverv etter § 22 a skal den være uttømmende og utvidet. Barneomsorgsattest er en særlig politiattest.
+    Gjenbrukssøket i begrepskatalogen 2026-11-19 ga ingen treff'
+  opphav: stbl. § 7 fjerde ledd (flyttet fra utkastet for statsborgerskap); også stbl. §§ 20 og 22 a, utl. §§ 97
+    og 98 c
+  status: forslag
+  begrepseier: vandel-og-sikkerhet
+  samling: felles
+- id: fe:straffereaksjon
+  anbefalt_term:
+    nb: straffereaksjon
+    nn: straffereaksjon
+  definisjon: straff eller strafferettslig særreaksjon som er ilagt en person
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 9
+  opphav: stbl. § 9 (flyttet fra utkastet for statsborgerskap); også stbl. §§ 20, 22 a og 26 a
+  status: forslag
+  begrepseier: vandel-og-sikkerhet
+  samling: felles
+  assosiativ:
+  - til: fe:karenstid
+    rolle: utløser
+- id: fe:vandelsopplysning
+  anbefalt_term:
+    nb: vandelsopplysning
+    nn: vandelsopplysning
+  definisjon: opplysning om hvorvidt en person er ilagt straff, andre strafferettslige reaksjoner eller andre tiltak
+    som følge av lovbrudd, eller er under straffeforfølgning
+  forhold_til_kilde: basert
+  kilde: utlendingsforskriften § 17-7i annet ledd
+  merknad: Brukes om referansepersonen i saker om særkullsbarn (§ 85) og i visumsaker (§ 86). Hvilke opplysninger
+    som omfattes, står i forskrift som ikke er lest. Definisjonen er hentet fra forskriften, som viser til politiregisterloven
+    § 36 første ledd nr. 1
+  opphav: utl. kap. 11 (opplysningskategori eller prosess som gjelder flere sakstyper); forskriften § 17-7i, statsborgerforskriften
+    § 14-1
+  status: usikker
+  begrepseier: vandel-og-sikkerhet
+  samling: felles
+  assosiativ:
+  - til: fe:vandel
+    rolle: belyser

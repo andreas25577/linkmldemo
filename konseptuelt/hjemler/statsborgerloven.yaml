@@ -1,0 +1,384 @@
+# FORELØPIG UTKAST til demo. Begrepseierne er fiktive. Ikke godkjent faglig eller juridisk.
+lov: statsborgerloven (LOV-2005-06-10-51)
+lov_uri: https://lovdata.no/lov/2005-06-10-51
+forskrift_uri: https://lovdata.no/forskrift/2006-06-30-756
+aktorer:
+- id: udi
+  navn: Utlendingsdirektoratet
+- id: politiet
+  navn: politiet
+- id: skatt
+  navn: skattemyndighetene
+- id: nav
+  navn: arbeids- og velferdsforvaltningen
+- id: lanekassen
+  navn: Statens lånekasse for utdanning
+- id: folkeregister
+  navn: folkeregistermyndigheten
+- id: kommunene
+  navn: kommunene
+- id: fylkeskommunene
+  navn: fylkeskommunene
+- id: uh
+  navn: universiteter og offentlige høyskoler
+- id: frittstaende
+  navn: frittstående skoler og private høyskoler
+- id: hkdir
+  navn: Direktoratet for høyere utdanning og kompetanse
+- id: pst
+  navn: Politiets sikkerhetstjeneste
+- id: kompetanse-norge
+  navn: Kompetanse Norge (nå Direktoratet for høyere utdanning og kompetanse)
+- id: une
+  navn: Utlendingsnemnda
+- id: utenriksstasjon
+  navn: norsk utenriksstasjon
+- id: parten
+  navn: den saken gjelder
+- id: stbl-organer
+  navn: organene som utøver myndighet etter statsborgerloven (§ 2)
+hjemler:
+- id: 7-4
+  bestemmelse: statsborgerloven § 7 fjerde ledd
+  lovdata: https://lovdata.no/lov/2005-06-10-51/§7
+  type: INNHENTING_FRA_UTLENDING
+  avgiver:
+  - parten
+  mottaker:
+  - udi
+  formal: vurdere straffbare forhold ved søknad om statsborgerskap
+  opplysninger:
+  - fe:politiattest
+  - fe:straffereaksjon
+  sakstyper:
+  - statsborgerskap
+  merknad: Uttømmende politiattest skal følge søknaden og også vise forhold søkeren er siktet eller tiltalt for.
+    Forskrift kan gi nærmere regler
+  status: forslag
+- id: 20-2
+  bestemmelse: statsborgerloven § 20 annet ledd
+  lovdata: https://lovdata.no/lov/2005-06-10-51/§20
+  type: INNHENTING_FRA_UTLENDING
+  avgiver:
+  - parten
+  mottaker:
+  - udi
+  formal: vurdere om melderen er dømt til frihetsstraff eller særreaksjon de siste syv årene
+  opplysninger:
+  - fe:politiattest
+  - fe:straffereaksjon
+  sakstyper:
+  - statsborgerskap-melding
+  status: forslag
+- id: 22a-2
+  bestemmelse: statsborgerloven § 22 a annet ledd
+  lovdata: https://lovdata.no/lov/2005-06-10-51/§22a
+  type: INNHENTING_FRA_UTLENDING
+  avgiver:
+  - parten
+  mottaker:
+  - udi
+  formal: vurdere straffbare forhold ved gjenerverv
+  opplysninger:
+  - fe:politiattest
+  - fe:straffereaksjon
+  sakstyper:
+  - statsborgerskap-melding
+  merknad: Uttømmende og utvidet politiattest etter politiregisterloven § 41 nr. 2
+  status: forslag
+- id: 29-1
+  bestemmelse: statsborgerloven § 29 første ledd
+  lovdata: https://lovdata.no/lov/2005-06-10-51/§29
+  type: INNHENTING_FRA_UTLENDING
+  avgiver:
+  - parten
+  mottaker:
+  - udi
+  formal: opplyse saken ved melding eller søknad om statsborgerskap
+  opplysninger:
+  - ext:personopplysninger
+  sakstyper:
+  - statsborgerskap
+  - statsborgerskap-melding
+  merknad: Plikt for den saken gjelder til å legge fram alle opplysninger som kan ha betydning for vedtaket, uten
+    pålegg
+  status: forslag
+- id: 29-2
+  bestemmelse: statsborgerloven § 29 annet ledd
+  lovdata: https://lovdata.no/lov/2005-06-10-51/§29
+  type: INNHENTING_FRA_UTLENDING
+  avgiver:
+  - parten
+  mottaker:
+  - udi
+  formal: opplyse en sak etter statsborgerloven
+  opplysninger:
+  - fe:mote-og-opplysningsplikt
+  - ext:personopplysninger
+  sakstyper:
+  - statsborgerskap
+  - statsborgerskap-melding
+  - statsborgerskap-tap
+  merknad: Pålegg om opplysninger, dokumentasjon og personlig oppmøte. Tilsvarer utlendingsloven § 83 første ledd
+  status: forslag
+- id: 29a-1
+  bestemmelse: statsborgerloven § 29 a første ledd
+  lovdata: https://lovdata.no/lov/2005-06-10-51/§29a
+  type: BEHANDLING
+  avgiver:
+  - stbl-organer
+  mottaker:
+  - stbl-organer
+  formal: utøve myndighet eller utføre andre oppgaver etter statsborgerloven
+  vilkar: når det er nødvendig
+  opplysninger:
+  - ext:personopplysninger
+  - fe:saerlige-kategorier-personopplysninger
+  sakstyper:
+  - statsborgerskap
+  - statsborgerskap-melding
+  - statsborgerskap-tap
+  merknad: Tilsvarer utlendingsloven § 83 a første ledd. Forskrift kan regulere formål, behandlingsansvar, automatiserte
+    avgjørelser, viderebehandling og registre
+  status: forslag
+- id: 29b-1
+  bestemmelse: statsborgerloven § 29 b første ledd
+  lovdata: https://lovdata.no/lov/2005-06-10-51/§29b
+  type: INNHENTING_FRA_ANDRE
+  avgiver:
+  - politiet
+  - skatt
+  - nav
+  - lanekassen
+  - folkeregister
+  - kommunene
+  - fylkeskommunene
+  - uh
+  - frittstaende
+  - hkdir
+  mottaker:
+  - udi
+  formal: opplyse saken
+  vilkar: når organet som behandler saken, anser det nødvendig; uten hinder av taushetsplikt
+  opplysninger:
+  - ext:personopplysninger
+  sakstyper:
+  - statsborgerskap
+  - statsborgerskap-melding
+  - statsborgerskap-tap
+  merknad: Samme organer som i utlendingsloven § 84, unntatt barnevernet. Hvilke sakstyper, personer og opplysninger
+    det gjelder, står i statsborgerforskriften kapittel 14, annotert som egne hjemler som presiserer denne
+  status: forslag
+- id: stbf14-1-1
+  bestemmelse: statsborgerforskriften § 14-1 første ledd
+  lovdata: https://lovdata.no/forskrift/2006-06-30-756/§14-1
+  presiserer: 29b-1
+  type: INNHENTING_FRA_ANDRE
+  avgiver:
+  - politiet
+  mottaker:
+  - udi
+  - une
+  formal: vurdere straffbare forhold
+  vilkar: etter anmodning
+  opplysninger:
+  - fe:vandelsopplysning
+  - fe:straffereaksjon
+  sakstyper:
+  - statsborgerskap
+  - statsborgerskap-melding
+  - statsborgerskap-tap
+  merknad: Erverv etter kapittel 3 og 4 og tilbakekall etter § 26
+  status: forslag
+- id: stbf14-1-2
+  bestemmelse: statsborgerforskriften § 14-1 annet ledd
+  lovdata: https://lovdata.no/forskrift/2006-06-30-756/§14-1
+  presiserer: 29b-1
+  type: INNHENTING_FRA_ANDRE
+  avgiver:
+  - politiet
+  mottaker:
+  - udi
+  - une
+  formal: vurdere å stille søknaden i bero (§ 30 annet ledd)
+  vilkar: bare der etterforskningshensyn ikke taler mot
+  opplysninger:
+  - fe:etterforskningsopplysning
+  sakstyper:
+  - statsborgerskap
+  status: forslag
+- id: stbf14-1-3
+  bestemmelse: statsborgerforskriften § 14-1 tredje ledd
+  lovdata: https://lovdata.no/forskrift/2006-06-30-756/§14-1
+  presiserer: 29b-1
+  type: INNHENTING_FRA_ANDRE
+  avgiver:
+  - pst
+  mottaker:
+  - udi
+  - une
+  formal: vurdere om saken berører grunnleggende nasjonale interesser
+  vilkar: når det er nødvendig
+  opplysninger:
+  - fe:grunnleggende-nasjonale-interesser
+  sakstyper:
+  - statsborgerskap
+  - statsborgerskap-melding
+  - statsborgerskap-tap
+  merknad: Gis som en vurdering, ikke som opplysninger
+  status: forslag
+- id: stbf14-2
+  bestemmelse: statsborgerforskriften § 14-2
+  lovdata: https://lovdata.no/forskrift/2006-06-30-756/§14-2
+  presiserer: 29b-1
+  type: INNHENTING_FRA_ANDRE
+  avgiver:
+  - lanekassen
+  mottaker:
+  - politiet
+  - udi
+  - une
+  formal: opplyse saken
+  vilkar: etter anmodning
+  opplysninger:
+  - fe:utdanningsstotte
+  - ext:referanseperson
+  sakstyper:
+  - statsborgerskap
+  - statsborgerskap-tap
+  merknad: Gjelder søkeren og referansepersonen, med beløp. For tap gjelder det tilbakekall etter § 26 annet ledd
+  status: forslag
+- id: stbf14-3
+  bestemmelse: statsborgerforskriften § 14-3
+  lovdata: https://lovdata.no/forskrift/2006-06-30-756/§14-3
+  presiserer: 29b-1
+  type: INNHENTING_FRA_ANDRE
+  avgiver:
+  - nav
+  mottaker:
+  - politiet
+  - udi
+  - une
+  formal: opplyse saken
+  vilkar: etter anmodning
+  opplysninger:
+  - fe:ytelse-etter-folketrygdloven
+  - fe:okonomisk-stonad
+  - ext:referanseperson
+  sakstyper:
+  - statsborgerskap
+  - statsborgerskap-tap
+  merknad: Gjelder søkeren og referansepersonen. For tap gjelder det tilbakekall etter § 26
+  status: forslag
+- id: stbf14-4
+  bestemmelse: statsborgerforskriften § 14-4
+  lovdata: https://lovdata.no/forskrift/2006-06-30-756/§14-4
+  presiserer: 29b-1
+  type: INNHENTING_FRA_ANDRE
+  avgiver:
+  - skatt
+  mottaker:
+  - udi
+  - une
+  formal: vurdere inntekt, blant annet etter § 10
+  vilkar: etter anmodning; uten hinder av taushetsplikten i skatteforvaltningsloven § 3-1
+  opplysninger:
+  - fe:registrert-inntekt
+  - ext:formue
+  - ext:referanseperson
+  sakstyper:
+  - statsborgerskap
+  - statsborgerskap-tap
+  merknad: For tap gjelder det tilbakekall etter § 26
+  status: forslag
+- id: stbf14-5
+  bestemmelse: statsborgerforskriften § 14-5
+  lovdata: https://lovdata.no/forskrift/2006-06-30-756/§14-5
+  presiserer: 29b-1
+  type: INNHENTING_FRA_ANDRE
+  avgiver:
+  - folkeregister
+  mottaker:
+  - politiet
+  - utenriksstasjon
+  - udi
+  - une
+  formal: opplyse saken
+  vilkar: etter anmodning; uten hinder av taushetsplikt
+  opplysninger:
+  - fe:folkeregisteropplysninger
+  - fe:familierelasjon
+  sakstyper:
+  - statsborgerskap
+  - statsborgerskap-melding
+  - statsborgerskap-tap
+  merknad: Om den saken gjelder og nærmeste familie. Erverv etter kapittel 2, 3 og 4 og § 37, og tap etter kapittel
+    5
+  status: forslag
+- id: stbf14-6
+  bestemmelse: statsborgerforskriften § 14-6
+  lovdata: https://lovdata.no/forskrift/2006-06-30-756/§14-6
+  presiserer: 29b-1
+  type: INNHENTING_FRA_ANDRE
+  avgiver:
+  - kommunene
+  mottaker:
+  - politiet
+  - udi
+  - une
+  formal: vurdere kravene om norsk og statsborgerprøve
+  vilkar: etter anmodning; uten hinder av taushetsplikt
+  opplysninger:
+  - fe:opplaering-i-norsk-og-samfunnskunnskap
+  - stb:statsborgerprove
+  - fe:opplysninger-om-utdanning
+  sakstyper:
+  - statsborgerskap
+  - statsborgerskap-tap
+  merknad: Kan innhentes fra nasjonale registre. For tap gjelder det tilbakekall etter § 26 annet ledd
+  status: forslag
+- id: stbf14-7
+  bestemmelse: statsborgerforskriften § 14-7
+  lovdata: https://lovdata.no/forskrift/2006-06-30-756/§14-7
+  presiserer: 29b-1
+  type: INNHENTING_FRA_ANDRE
+  avgiver:
+  - fylkeskommunene
+  - uh
+  - frittstaende
+  mottaker:
+  - politiet
+  - udi
+  - une
+  formal: opplyse saken
+  vilkar: når det er nødvendig; uten hinder av taushetsplikt
+  opplysninger:
+  - fe:opplysninger-om-utdanning
+  sakstyper:
+  - statsborgerskap
+  - statsborgerskap-tap
+  merknad: Kan innhentes fra nasjonale registre. For tap gjelder det tilbakekall etter § 26 annet ledd
+  status: forslag
+- id: stbf14-8
+  bestemmelse: statsborgerforskriften § 14-8
+  lovdata: https://lovdata.no/forskrift/2006-06-30-756/§14-8
+  presiserer: 29b-1
+  type: INNHENTING_FRA_ANDRE
+  avgiver:
+  - kompetanse-norge
+  mottaker:
+  - politiet
+  - udi
+  - une
+  formal: vurdere kravene om norsk og statsborgerprøve
+  vilkar: etter anmodning; uten hinder av taushetsplikt
+  opplysninger:
+  - fe:muntlig-norskprove
+  - fe:proveresultat
+  - stb:statsborgerprove
+  sakstyper:
+  - statsborgerskap
+  - statsborgerskap-tap
+  merknad: Forskriften nevner Kompetanse Norge, som er innlemmet i Direktoratet for høyere utdanning og kompetanse.
+    Bør oppdateres. For tap gjelder det tilbakekall etter § 26 annet ledd
+  status: forslag

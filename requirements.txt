@@ -1,0 +1,4 @@
+linkml==1.12.*
+pyshacl==0.40.*
+rdflib>=7
+pyyaml>=6

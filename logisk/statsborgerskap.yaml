@@ -1,0 +1,183 @@
+# FORELØPIG UTKAST til demo, generert fra mellomformatet og deretter redigert for hånd.
+id: https://example.org/udi/linkmldemo/logisk/statsborgerskap
+name: statsborgerskap
+title: Søknad om norsk statsborgerskap (foreløpig utkast)
+description: Foreløpig utkast utledet av en begrepssamling som ikke er godkjent. Avgrenset til søknad om norsk statsborgerskap
+  etter statsborgerloven kapittel 3.
+license: CC-BY-4.0
+version: 0.1.0
+prefixes:
+  linkml: https://w3id.org/linkml/
+  xsd: http://www.w3.org/2001/XMLSchema#
+  fe: https://example.org/udi/felles/begrep/
+  stb: https://example.org/udi/statsborgerskap/begrep/
+  stbm: https://example.org/udi/statsborgerskap-melding/begrep/
+  stbt: https://example.org/udi/statsborgerskap-tap/begrep/
+  udi: https://example.org/udi/linkmldemo/logisk/statsborgerskap/
+default_prefix: udi
+default_range: string
+imports:
+- linkml:types
+- felles
+annotations:
+  sakstype: statsborgerskap
+classes:
+  SoknadOmStatsborgerskap:
+    exact_mappings:
+    - stb:soknad-om-statsborgerskap
+    description: henvendelse der en person ber om å få norsk statsborgerskap
+    attributes:
+      soknadsidentifikator:
+        range: string
+        required: true
+      soker:
+        range: Person
+        required: true
+        annotations:
+          egenskapstype: rolle
+        exact_mappings:
+        - https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760746/concepts/0c87a416-0363-4361-8b43-ac4441f932cb
+      soknadstidspunkt:
+        range: date
+        required: true
+        exact_mappings:
+        - fe:soknadstidspunkt
+      innleveringsdato:
+        range: date
+        exact_mappings:
+        - stb:oppmote
+      gebyrbelop:
+        range: Belop
+        exact_mappings:
+        - fe:saksbehandlingsgebyr
+      identitetErKlarlagt:
+        range: boolean
+        exact_mappings:
+        - fe:klarlagt-identitet
+      erBosattIRiket:
+        range: boolean
+        exact_mappings:
+        - fe:bosatt-i-riket
+      ankomstTilRiket:
+        range: date
+        exact_mappings:
+        - fe:ankomst-til-riket
+      grunnlagForOppholdstidskrav:
+        range: GrunnlagForOppholdstidskrav
+        exact_mappings:
+        - stb:grunnlag-for-oppholdstidskrav
+      oppholdstid:
+        range: Varighet
+        exact_mappings:
+        - stb:oppholdstid
+      unntakFraProvekrav:
+        range: boolean
+        exact_mappings:
+        - stb:unntak-fra-provekrav
+      forelderSomGrunnlag:
+        range: Person
+        annotations:
+          egenskapstype: rolle
+        exact_mappings:
+        - stb:biperson
+      dispensasjonSokt:
+        range: boolean
+        exact_mappings:
+        - stb:dispensasjon-statsborgerskap
+      identitetsdokumentasjon:
+        range: Identitetsdokumentasjon
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      politiattest:
+        range: Politiattest
+        inlined: true
+      oppholdsperiode:
+        range: Oppholdsperiode
+        multivalued: true
+        inlined: false
+      muntligNorskprove:
+        range: MuntligNorskprove
+        multivalued: true
+        inlined: false
+      statsborgerprove:
+        range: Statsborgerprove
+        multivalued: true
+        inlined: false
+      straffereaksjon:
+        range: Straffereaksjon
+        multivalued: true
+        inlined: false
+      vedtak:
+        range: VedtakOmStatsborgerskap
+        inlined: false
+  VedtakOmStatsborgerskap:
+    exact_mappings:
+    - stb:vedtak-om-statsborgerskap
+    description: avgjørelse som innvilger eller avslår en søknad om norsk statsborgerskap
+    attributes:
+      vedtakstidspunkt:
+        range: date
+        required: true
+        exact_mappings:
+        - fe:vedtakstidspunkt
+      vedtaksutfall:
+        range: Vedtaksutfall
+        required: true
+        exact_mappings:
+        - fe:vedtaksutfall
+      dispensasjonGitt:
+        range: boolean
+        exact_mappings:
+        - stb:dispensasjon-statsborgerskap
+      nasjonaleInteresserTalerMot:
+        range: boolean
+        exact_mappings:
+        - fe:grunnleggende-nasjonale-interesser
+  Identitetsdokumentasjon:
+    exact_mappings:
+    - https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760746/concepts/ee9e81d7-8eb2-4102-8d03-4f8df4bb74b6
+    description: identitetsdokument
+    attributes:
+      dokumentidentifikator:
+        range: string
+  Statsborgerprove:
+    exact_mappings:
+    - stb:statsborgerprove
+    description: prøve i samfunnskunnskap som den som søker norsk statsborgerskap må bestå
+    attributes:
+      provedato:
+        range: date
+      proveresultat:
+        range: Proveresultat
+        required: true
+        exact_mappings:
+        - fe:proveresultat
+enums:
+  GrunnlagForOppholdstidskrav:
+    description: bestemmelse som fastsetter hvilket krav til oppholdstid som gjelder for en søker
+    enum_uri: stb:grunnlag-for-oppholdstidskrav
+    permissible_values:
+      P7:
+        description: hovedregel, åtte av siste elleve år (§ 7)
+      P10:
+        description: tilstrekkelig inntekt, seks av siste ti år (§ 10)
+      P11:
+        description: ankommet riket før fylte 18 år, fem av siste syv år (§ 11)
+      P12:
+        description: gift, registrert partner eller samboer med norsk statsborger (§ 12)
+      P13:
+        description: nordisk statsborger, siste to år (§ 13)
+        meaning: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760746/concepts/f9e2d354-1e20-49f3-961f-df2a8233a146
+      P14:
+        description: omfattet av EØS-avtalen eller EFTA-konvensjonen, siste tre år (§ 14)
+      P15:
+        description: tidligere norsk borger, siste to år (§ 15)
+      P16:
+        description: statsløs, siste tre år (§ 16)
+        meaning: fe:statslos
+      P16A:
+        description: anerkjent flyktning, syv av siste ti år (§ 16 a)
+      P17:
+        description: barn som biperson, siste to år (§ 17)
+        meaning: stb:biperson

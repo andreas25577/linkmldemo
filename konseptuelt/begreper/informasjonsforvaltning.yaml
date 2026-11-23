@@ -1,0 +1,361 @@
+# FORELØPIG UTKAST til demo. Begrepseierne er fiktive. Ikke godkjent faglig eller juridisk.
+begreper:
+- id: fe:ankomst-til-riket
+  anbefalt_term:
+    nb: ankomst til riket
+    nn: framkomst til riket
+  definisjon: tidspunkt da en person kom til Norge
+  forhold_til_kilde: basert
+  kilde: statsborgerforskriften § 3-1
+  merknad: Sannsynliggjøres ved registrering hos politiet, i folkeregisteret eller på annen måte
+  opphav: stbl. § 11, forskriften § 3-1 (flyttet fra utkastet for statsborgerskap)
+  status: forslag
+  begrepseier: informasjonsforvaltning
+  samling: felles
+- id: fe:barnets-beste
+  anbefalt_term:
+    nb: hensynet til barnets beste
+    nn: omsynet til det beste for barnet
+  definisjon: vurdering av hva som samlet sett er best for barnet
+  forhold_til_kilde: egendefinert
+  merknad: Er et grunnleggende hensyn i saker som berører barn (utl. § 49 tredje ledd) og kan føre til avslag når
+    bare én av foreldrene har tillatelse (§ 42 annet ledd). Innholdet følger av Grunnloven § 104 og barnekonvensjonen,
+    som ikke er gjennomgått
+  opphav: utl. § 42 annet ledd (flyttet fra utkastet for barn)
+  status: usikker
+  begrepseier: informasjonsforvaltning
+  samling: felles
+- id: fe:bosatt-i-riket
+  anbefalt_term:
+    nb: bosatt i riket
+    nn: busett i riket
+  definisjon: det å ha fast bopel i Norge
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 7 første ledd bokstav c
+  merknad: Vilkåret er at søkeren er og vil forbli bosatt. Forholdet til folkeregisterlovens bosattbegrep må avklares.
+    Skatteetatens bosatt i Norge er definert etter folkeregisterloven
+  opphav: stbl. § 7 c, forskriften kap. 2 (flyttet fra utkastet for statsborgerskap); også stbl. §§ 20 til 22, 24
+    og 25
+  status: usikker
+  begrepseier: informasjonsforvaltning
+  samling: felles
+  se_ogsa:
+  - ext:bosatt-i-norge
+- id: fe:familierelasjon
+  anbefalt_term:
+    nb: familierelasjon
+    nn: familierelasjon
+  definisjon: forhold mellom personer som er knyttet sammen gjennom ekteskap, samliv, slektskap eller adopsjon
+  forhold_til_kilde: egendefinert
+  kilde: utlendingsloven §§ 84 a og 87
+  merknad: Loven bruker termen familie- og personrelasjoner (§ 84 a) og familierelasjon (§ 87) uten å definere dem
+  opphav: utl. kap. 11 (opplysningskategori eller prosess som gjelder flere sakstyper)
+  status: usikker
+  begrepseier: informasjonsforvaltning
+  samling: felles
+- id: fe:ferdighetsniva
+  anbefalt_term:
+    nb: ferdighetsnivå
+    nn: ferdigheitsnivå
+  definisjon: trinn på en skala som angir hvor godt en person behersker et språk
+  forhold_til_kilde: egendefinert
+  merknad: Nivåene i det felles europeiske rammeverket for språk
+  opphav: stbl. § 8 (flyttet fra utkastet for statsborgerskap)
+  status: forslag
+  begrepseier: informasjonsforvaltning
+  samling: felles
+  kodeverdier:
+  - kode: A1
+    term: A1
+  - kode: A2
+    term: A2
+  - kode: B1
+    term: B1
+  - kode: B2
+    term: B2
+  - kode: C1
+    term: C1
+- id: fe:muntlig-norskprove
+  anbefalt_term:
+    nb: muntlig prøve i norsk
+    nn: munnleg prøve i norsk
+  tillatt_term:
+  - norskprøve
+  definisjon: prøve som måler ferdigheter i å snakke og forstå norsk
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 8, utlendingsloven § 62 første ledd bokstav d
+  merknad: 'Nivåkravet varierer: minimum B1 for statsborgerskap (statsborgerloven § 8) og A2 for permanent oppholdstillatelse
+    (utlendingsforskriften § 11-9)'
+  opphav: stbl. § 8 (flyttet fra utkastet for statsborgerskap)
+  status: forslag
+  begrepseier: informasjonsforvaltning
+  samling: felles
+  partitiv:
+  - fe:ferdighetsniva
+- id: fe:norsk-statsborgerskap
+  anbefalt_term:
+    nb: norsk statsborgerskap
+    nn: norsk statsborgarskap
+  definisjon: statsborgerskap der staten er Norge
+  forhold_til_kilde: egendefinert
+  opphav: stbl. § 1 (flyttet fra utkastet for statsborgerskap)
+  status: forslag
+  begrepseier: informasjonsforvaltning
+  samling: felles
+  generisk:
+  - ext:statsborgerskap
+- id: fe:okonomisk-stonad
+  anbefalt_term:
+    nb: økonomisk stønad
+    nn: økonomisk stønad
+  tillatt_term:
+  - økonomisk sosialhjelp
+  definisjon: stønad til livsopphold etter lov om sosiale tjenester i arbeids- og velferdsforvaltningen
+  forhold_til_kilde: basert
+  kilde: utlendingsforskriften § 17-7g første ledd
+  merknad: Opplysningene kan omfatte beløp, art, varighet og antall utbetalinger. Avgjør blant annet om underholdskravet
+    er oppfylt. Gjenbrukssøket i begrepskatalogen 2026-11-19 ga ingen treff
+  opphav: utf. § 17-7g, stbf. § 14-3
+  status: usikker
+  begrepseier: informasjonsforvaltning
+  samling: felles
+  se_ogsa:
+  - ext:kvalifiseringsstonad
+- id: fe:oppholdsperiode
+  anbefalt_term:
+    nb: oppholdsperiode
+    nn: opphaldsperiode
+  definisjon: sammenhengende tidsrom der en person har oppholdt seg i riket med én oppholdstillatelse
+  forhold_til_kilde: egendefinert
+  opphav: stbl. § 7 e, forskriften kap. 3 (flyttet fra utkastet for statsborgerskap)
+  status: forslag
+  begrepseier: informasjonsforvaltning
+  samling: felles
+  assosiativ:
+  - til: fe:oppholdstillatelse
+    rolle: bygger på
+- id: fe:oppholdstillatelse
+  anbefalt_term:
+    nb: oppholdstillatelse
+    nn: opphaldsløyve
+  definisjon: tillatelse som gir en utlending rett til å oppholde seg i riket utover tre måneder, og eventuelt til
+    å ta arbeid
+  forhold_til_kilde: basert
+  kilde: utlendingsloven §§ 55 og 60
+  merknad: Kreves for opphold utover tre måneder og for å ta arbeid. Opphold i et annet Schengenland likestilles
+    med opphold i riket ved beregningen. UDI har ikke publisert begrepet. Skatteetaten har et folkeregisterbegrep
+    med samme term, koblet som nært samsvar
+  opphav: stbl. § 7 e (flyttet fra utkastet for statsborgerskap)
+  status: forslag
+  begrepseier: informasjonsforvaltning
+  samling: felles
+  naer:
+  - ext:oppholdstillatelse-skatt
+- id: fe:opplaering-i-norsk-og-samfunnskunnskap
+  anbefalt_term:
+    nb: opplæring i norsk og samfunnskunnskap
+    nn: opplæring i norsk og samfunnskunnskap
+  definisjon: opplæring etter integreringsloven som en utlending har plikt eller rett til å delta i
+  forhold_til_kilde: basert
+  kilde: utlendingsforskriften § 17-7e første ledd bokstav b
+  merknad: Opplysningene gjelder gjennomføring, resultat av avsluttende prøver og fritak. Statsborgerforskriften
+    viser fortsatt til introduksjonsloven. Gjenbrukssøket i begrepskatalogen 2026-11-19 ga ingen treff
+  opphav: utf. § 17-7e første ledd, stbf. § 14-6
+  status: usikker
+  begrepseier: informasjonsforvaltning
+  samling: felles
+  se_ogsa:
+  - fe:muntlig-norskprove
+- id: fe:opplysninger-om-utdanning
+  anbefalt_term:
+    nb: opplysninger om utdanning
+    nn: opplysningar om utdanning
+  definisjon: opplysninger om en persons utdanning og studier, som opptak, progresjon, permisjoner, vitnemål og
+    resultater
+  forhold_til_kilde: basert
+  kilde: utlendingsforskriften § 17-7k første ledd
+  merknad: Termen er et forslag. Etter § 17-7k kan opplysningene også gjelde bolig og underhold
+  opphav: utf. §§ 17-7e og 17-7k, stbf. §§ 14-6 og 14-7
+  status: usikker
+  begrepseier: informasjonsforvaltning
+  samling: felles
+  se_ogsa:
+  - fe:utdanningsinstitusjon
+- id: fe:proveresultat
+  anbefalt_term:
+    nb: prøveresultat
+    nn: prøveresultat
+  definisjon: utfallet av en avlagt prøve
+  forhold_til_kilde: egendefinert
+  opphav: stbl. § 8, utl. § 62 (flyttet fra utkastet for statsborgerskap)
+  status: forslag
+  begrepseier: informasjonsforvaltning
+  samling: felles
+  kodeverdier:
+  - kode: BESTATT
+    term: bestått
+  - kode: IKKE_BESTATT
+    term: ikke bestått
+- id: fe:registrert-inntekt
+  anbefalt_term:
+    nb: registrert inntekt
+    nn: registrert inntekt
+  definisjon: inntekt som framgår av siste skatteoppgjør eller av skattemyndighetenes bekreftelse på innrapportert
+    inntekt for foregående år
+  forhold_til_kilde: basert
+  kilde: utlendingsforskriften § 10-9 første ledd
+  opphav: forskriften § 10-9 første ledd (flyttet fra utkastet for ektefeller og samboere)
+  status: forslag
+  begrepseier: informasjonsforvaltning
+  samling: felles
+- id: fe:saksbehandlingsgebyr
+  anbefalt_term:
+    nb: saksbehandlingsgebyr
+    nn: saksbehandlingsgebyr
+  tillatt_term:
+  - søknadsgebyr
+  definisjon: beløp som må betales for å få en søknad behandlet
+  forhold_til_kilde: basert
+  kilde: utlendingsloven § 89, statsborgerforskriften § 15-1
+  merknad: Kan kreves for søknader etter utlendingsloven, men ikke for søknader om beskyttelse. Gjelder også søknader
+    om statsborgerskap. Satsene står i forskriftene
+  opphav: forskriften kap. 15 (flyttet fra utkastet for statsborgerskap)
+  status: forslag
+  begrepseier: informasjonsforvaltning
+  samling: felles
+  generisk:
+  - ext:gebyr
+- id: fe:soknadstidspunkt
+  anbefalt_term:
+    nb: søknadstidspunkt
+    nn: søknadstidspunkt
+  definisjon: tidspunkt da en søknad er fremmet
+  forhold_til_kilde: egendefinert
+  merknad: Verken statsborgerloven eller utlendingsloven definerer termen. Avklar om det er innsending av skjema
+    eller innlevering hos politiet. Arbeids- og velferdsetaten har et begrep med samme term, men URI-en i katalogen
+    er en plassholder
+  opphav: stbl. §§ 8, 10, 16 (flyttet fra utkastet for statsborgerskap)
+  status: usikker
+  begrepseier: informasjonsforvaltning
+  samling: felles
+- id: fe:tilbakekall-av-oppholdstillatelse
+  anbefalt_term:
+    nb: tilbakekall av oppholdstillatelse
+    nn: tilbakekall av opphaldsløyve
+  definisjon: vedtak som opphever en gitt oppholdstillatelse
+  forhold_til_kilde: basert
+  kilde: utlendingsloven § 63
+  merknad: Kan blant annet skje når utlendingen mot bedre vitende har gitt uriktige opplysninger eller fortiet vesentlige
+    forhold, eller etter alminnelige forvaltningsrettslige regler. Egne tilbakekallsregler gjelder for beskyttelse
+    (§ 37)
+  opphav: utl. kap. 7 (gjelder alle oppholdstillatelser)
+  status: forslag
+  begrepseier: informasjonsforvaltning
+  samling: felles
+  assosiativ:
+  - til: fe:oppholdstillatelse
+    rolle: opphever
+- id: fe:tilleggstid
+  anbefalt_term:
+    nb: tilleggstid
+    nn: tilleggstid
+  definisjon: tid som legges til kravet til oppholdstid når det foreligger en utvisningsgrunn og utlendingen ikke
+    blir utvist
+  forhold_til_kilde: basert
+  kilde: utlendingsloven § 62 sjette ledd
+  merknad: Kan fastsettes i stedet for utvisning (§ 70 annet ledd) eller i vedtaket om oppholdstillatelse (§ 60
+    sjette ledd), med inntil tre år. Beregnes etter forskriften §§ 11-5 til 11-5c
+  opphav: utl. § 62 første ledd bokstav c og sjette ledd, forskriften §§ 11-5 til 11-5c (flyttet fra utkastet for
+    permanent oppholdstillatelse)
+  status: forslag
+  begrepseier: informasjonsforvaltning
+  samling: felles
+- id: fe:utdanningsinstitusjon
+  anbefalt_term:
+    nb: utdanningsinstitusjon
+    nn: utdanningsinstitusjon
+  tillatt_term:
+  - lærested
+  - studiested
+  definisjon: virksomhet som gir utdanning, som universitet, høyskole, fagskole, videregående skole, folkehøgskole
+    eller livssynsskole
+  forhold_til_kilde: basert
+  kilde: utlendingsforskriften § 6-19 første og annet ledd
+  merknad: UDI kan i samråd med Kunnskapsdepartementet gi retningslinjer om hvilke institusjoner og studier som
+    godkjennes
+  opphav: forskriften § 6-19 (flyttet fra utkastet for studier)
+  status: forslag
+  begrepseier: informasjonsforvaltning
+  samling: felles
+  generisk:
+  - ext:virksomhet
+- id: fe:utdanningsstotte
+  anbefalt_term:
+    nb: utdanningsstøtte
+    nn: utdanningsstøtte
+  definisjon: lån og stipend fra Statens lånekasse for utdanning
+  forhold_til_kilde: basert
+  kilde: utlendingsforskriften § 17-7f
+  merknad: Opplysningene omfatter vedtak, støttebeløp og status på utbetalingene. Lånekassen har ikke publisert
+    begrepet i begrepskatalogen
+  opphav: utf. § 17-7f, stbf. § 14-2
+  status: usikker
+  begrepseier: informasjonsforvaltning
+  samling: felles
+  se_ogsa:
+  - ext:stipend
+- id: fe:vandel
+  anbefalt_term:
+    nb: vandel
+    nn: vandel
+  definisjon: forhold ved en utlendings tidligere atferd som kan gi grunn til å nekte utlendingen adgang til eller
+    opphold i riket etter andre bestemmelser i loven
+  forhold_til_kilde: basert
+  kilde: utlendingsloven § 59
+  merknad: Termen står i paragrafoverskriften. Kan ikke brukes til å nekte oppholdstillatelse etter § 28. Vandelskravene
+    i statsborgerloven § 7 er et annet begrep
+  opphav: utl. kap. 7 (gjelder alle oppholdstillatelser)
+  status: usikker
+  begrepseier: informasjonsforvaltning
+  samling: felles
+- id: fe:vedtakstidspunkt
+  anbefalt_term:
+    nb: vedtakstidspunkt
+    nn: vedtakstidspunkt
+  definisjon: tidspunkt da et vedtak er truffet
+  forhold_til_kilde: egendefinert
+  merknad: Vilkårene må som hovedregel være oppfylt på dette tidspunktet, jf. statsborgerloven § 7 og utlendingsloven
+    § 62 tredje ledd
+  opphav: stbl. § 7 første ledd (flyttet fra utkastet for statsborgerskap)
+  status: forslag
+  begrepseier: informasjonsforvaltning
+  samling: felles
+- id: fe:vedtaksutfall
+  anbefalt_term:
+    nb: vedtaksutfall
+    nn: vedtaksutfall
+  definisjon: resultatet av et vedtak
+  forhold_til_kilde: egendefinert
+  merknad: Verdiene gjenbruker UDIs publiserte begreper innvilgelse og avslag. Avklar om flere utfall brukes
+  opphav: egen utledning (flyttet fra utkastet for statsborgerskap)
+  status: usikker
+  begrepseier: informasjonsforvaltning
+  samling: felles
+  kodeverdier:
+  - kode: INNVILGET
+    term: innvilgelse
+    begrep: ext:innvilgelse
+  - kode: AVSLATT
+    term: avslag
+    begrep: ext:avslag
+- id: fe:ytelse-etter-folketrygdloven
+  anbefalt_term:
+    nb: ytelse etter folketrygdloven
+    nn: yting etter folketrygdlova
+  definisjon: ytelse som er tildelt etter lov om folketrygd
+  forhold_til_kilde: egendefinert
+  merknad: Gjenbrukssøket i begrepskatalogen 2026-11-19 ga ingen treff
+  opphav: utf. § 17-7g annet ledd, stbf. § 14-3
+  status: usikker
+  begrepseier: informasjonsforvaltning
+  samling: felles

@@ -1,0 +1,53 @@
+name: Publiser
+# Ved endring på main: bygg Turtle-filene, LinkML-dokumentasjonen og nettstedet, og publiser på GitHub Pages.
+# Ved ny release: legg også Turtle-filene ved releasen, klare for høsting til data.norge.
+on:
+  push:
+    branches: [main]
+  release:
+    types: [published]
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  bygg:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Kontroll
+        run: python verktoy/kontroll.py
+      - name: RDF
+        run: python verktoy/rdf.py
+      - name: Nettsted
+        run: |
+          python verktoy/side.py --ut side
+          for s in logisk/statsborgerskap*.yaml; do n=$(basename "$s" .yaml); gen-doc -d "side/modeller/$n" "$s"; done
+          mkdir -p side/rdf && cp bygg/*.ttl side/rdf/
+          ( cd side/rdf && ls *.ttl | sed 's/.*/<li><a href="&">&<\/a><\/li>/' | (echo '<!DOCTYPE html><meta charset="utf-8"><title>RDF</title><h1>Turtle-filer</h1><ul>'; cat; echo '</ul>') > index.html )
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: side
+      - name: Legg Turtle-filene ved releasen
+        if: github.event_name == 'release'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "${{ github.event.release.tag_name }}" bygg/*.ttl --clobber
+  publiser:
+    needs: bygg
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.side.outputs.page_url }}
+    steps:
+      - id: side
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,12 @@
+# Innstillinger for kontrollene. Endringer her skal godkjennes av informasjonsforvaltning.
+saerlige_begreper:
+  # Begreper som gjør et felt sensitivt. Også underbegreper (generisk relasjon) teller.
+  - fe:straffereaksjon
+  - fe:politiattest
+  - fe:vandelsopplysning
+  - fe:saerlige-kategorier-personopplysninger
+  - fe:biometriske-opplysninger
+jurist:
+  # Fiktiv juridisk eier av hjemmelslaget i demoen
+  navn: Juridisk seksjon
+  github: "@andreas25577"

@@ -1,0 +1,227 @@
+# FORELØPIG UTKAST til demo. Begrepseierne er fiktive. Ikke godkjent faglig eller juridisk.
+begreper:
+- id: stbt:tap-av-statsborgerskap
+  anbefalt_term:
+    nb: tap av norsk statsborgerskap
+    nn: tap av norsk statsborgarskap
+  definisjon: opphør av norsk statsborgerskap
+  forhold_til_kilde: basert
+  kilde: statsborgerloven kapittel 5
+  merknad: Kan skje ved lov (fravær), etter søknad (løsning), ved tilbakekall, ved dom eller ved vedtak av departementet.
+    Flere grunner gjelder ikke dersom personen blir statsløs
+  opphav: stbl. kapittel 5
+  status: forslag
+  begrepseier: tap-og-tilbakekall
+  samling: statsborgerskap-tap
+  generisk:
+  - fe:norsk-statsborgerskap
+  partitiv:
+  - stbt:type-tap
+  assosiativ:
+  - til: fe:statslos
+    rolle: hindres ofte av
+- id: stbt:type-tap
+  anbefalt_term:
+    nb: type tap av statsborgerskap
+    nn: type tap av statsborgarskap
+  definisjon: inndeling av saker om tap av norsk statsborgerskap etter grunnlaget for tapet
+  forhold_til_kilde: egendefinert
+  merknad: Termen er et forslag. Bortfall av ervervsgrunnlag (§ 6) er strengt tatt ikke tap, fordi barnet anses
+    for aldri å ha vært norsk
+  opphav: stbl. §§ 6, 24 til 26 b
+  status: usikker
+  begrepseier: tap-og-tilbakekall
+  samling: statsborgerskap-tap
+  kodeverdier:
+  - kode: FRAVAER
+    term: tap ved fravær fra riket (§ 24)
+    begrep: stbt:tap-ved-fravaer
+  - kode: LOSNING
+    term: løsning etter søknad (§ 25)
+    begrep: stbt:losning-fra-statsborgerskap
+  - kode: TILBAKEKALL
+    term: tilbakekall av vedtak om statsborgerskap (§ 26)
+    begrep: stbt:tilbakekall-av-statsborgerskap
+  - kode: DOM
+    term: tap ved dom for straffbare forhold (§ 26 a)
+    begrep: stbt:tap-ved-straffbare-forhold
+  - kode: NASJONALE_INTERESSER
+    term: tap av hensyn til grunnleggende nasjonale interesser (§ 26 b)
+    begrep: stbt:tap-av-hensyn-til-nasjonale-interesser
+  - kode: BORTFALT_GRUNNLAG
+    term: bortfall av grunnlaget for erverv ved fødsel eller adopsjon (§ 6)
+    begrep: stbt:bortfall-av-ervervsgrunnlag
+- id: stbt:tap-ved-fravaer
+  anbefalt_term:
+    nb: tap ved fravær fra riket
+    nn: tap ved fråvær frå riket
+  definisjon: tap av norsk statsborgerskap ved fylte 22 år for den som ervervet det ved fødselen, men ikke har vært
+    bosatt i Norge i til sammen to år eller i Norge og andre nordiske land i til sammen syv år
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 24 første ledd
+  merknad: Inntrer ikke dersom personen blir statsløs. Barna taper også statsborgerskapet, med mindre en forelder
+    fortsatt er norsk eller barnet selv fyller vilkårene
+  opphav: stbl. § 24
+  status: forslag
+  begrepseier: tap-og-tilbakekall
+  samling: statsborgerskap-tap
+  assosiativ:
+  - til: stbt:soknad-om-a-beholde-statsborgerskap
+    rolle: kan avverges ved
+- id: stbt:soknad-om-a-beholde-statsborgerskap
+  anbefalt_term:
+    nb: søknad om å beholde norsk statsborgerskap
+    nn: søknad om å behalde norsk statsborgarskap
+  definisjon: søknad fra en person som ellers vil tape norsk statsborgerskap ved fylte 22 år på grunn av fravær
+    fra riket, om å få fortsette som norsk statsborger
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 24 annet ledd
+  merknad: Må fremmes innen fylte 22 år. En for sen søknad kan behandles når søkeren ikke er vesentlig å bebreide,
+    eller det ville være urimelig at statsborgerskapet tapes
+  opphav: stbl. § 24 annet og tredje ledd
+  status: forslag
+  begrepseier: tap-og-tilbakekall
+  samling: statsborgerskap-tap
+  assosiativ:
+  - til: stbt:tilstrekkelig-tilknytning
+    rolle: forutsetter
+  generisk:
+  - ext:soknad
+- id: stbt:tilstrekkelig-tilknytning
+  anbefalt_term:
+    nb: tilstrekkelig tilknytning til Norge
+    nn: tilstrekkeleg tilknyting til Noreg
+  definisjon: tilknytning til Norge som gir rett til å beholde norsk statsborgerskap som ellers ville gått tapt
+    ved fravær
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 24 annet ledd
+  merknad: Vilkårene står i forskriften, som ikke er gjennomgått for dette utkastet
+  opphav: stbl. § 24 annet ledd
+  status: usikker
+  begrepseier: tap-og-tilbakekall
+  samling: statsborgerskap-tap
+- id: stbt:losning-fra-statsborgerskap
+  anbefalt_term:
+    nb: løsning fra norsk statsborgerskap
+    nn: løysing frå norsk statsborgarskap
+  tillatt_term:
+  - tap etter søknad
+  definisjon: tap av norsk statsborgerskap etter søknad fra en norsk statsborger som har et annet statsborgerskap
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 25 første ledd
+  merknad: Bosatt i utlandet gir rett til løsning, bosatt i Norge bare når det vil være urimelig å nekte. Fører
+    den til statsløshet, kan løsning bare gis til den som bor i utlandet og trenger det for å erverve annet statsborgerskap,
+    med en frist for ervervet
+  opphav: stbl. § 25
+  status: forslag
+  begrepseier: tap-og-tilbakekall
+  samling: statsborgerskap-tap
+- id: stbt:tilbakekall-av-statsborgerskap
+  anbefalt_term:
+    nb: tilbakekall av vedtak om statsborgerskap
+    nn: tilbakekall av vedtak om statsborgarskap
+  definisjon: omgjøring av et vedtak om statsborgerskap fordi det bygger på feil ved saksbehandlingen eller rettsanvendelsen,
+    eller på uriktige opplysninger eller fortielser fra søkeren
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 26 første og annet ledd
+  merknad: Treffes av UDI. Statsborgerskap ervervet som mindreårig på grunnlag av foreldres uriktige opplysninger
+    kan som hovedregel ikke tilbakekalles. Tilbakekall kan ikke skje når det er uforholdsmessig
+  opphav: stbl. § 26
+  status: forslag
+  begrepseier: tap-og-tilbakekall
+  samling: statsborgerskap-tap
+  assosiativ:
+  - til: fe:forholdsmessighet
+    rolle: begrenses av
+  se_ogsa:
+  - fe:tilbakekall-av-oppholdstillatelse
+- id: stbt:tap-ved-straffbare-forhold
+  anbefalt_term:
+    nb: tap ved straffbare forhold
+    nn: tap ved straffbare forhold
+  definisjon: tap av norsk statsborgerskap ved dom for den som har et annet statsborgerskap og straffes etter straffeloven
+    kapittel 16, 17 eller 18 for forhold som kan gi fengsel i seks år eller mer
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 26 a første ledd
+  merknad: Avgjøres av domstolen. Gjelder ikke handlinger begått før fylte 18 år, og ikke når tapet er uforholdsmessig
+  opphav: stbl. § 26 a
+  status: forslag
+  begrepseier: tap-og-tilbakekall
+  samling: statsborgerskap-tap
+  assosiativ:
+  - til: fe:straffereaksjon
+    rolle: bygger på
+  - til: fe:forholdsmessighet
+    rolle: begrenses av
+- id: stbt:tap-av-hensyn-til-nasjonale-interesser
+  anbefalt_term:
+    nb: tap av hensyn til grunnleggende nasjonale interesser
+    nn: tap av omsyn til grunnleggjande nasjonale interesser
+  definisjon: vedtak fra departementet om tap av norsk statsborgerskap for en person med annet statsborgerskap,
+    som har utvist en fremferd som tilsier at vedkommende sterkt vil skade grunnleggende nasjonale interesser
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 26 b første ledd
+  merknad: Fremferd før fylte 18 år kan ikke alene gi tap, men kan inngå i en fremtidsrettet risikovurdering. Gjelder
+    ikke når tapet er uforholdsmessig. Saksbehandlingen med særskilt advokat (§§ 31 c til 31 h) er ikke med
+  opphav: stbl. § 26 b
+  status: forslag
+  begrepseier: tap-og-tilbakekall
+  samling: statsborgerskap-tap
+  assosiativ:
+  - til: fe:grunnleggende-nasjonale-interesser
+    rolle: begrunnes i
+  - til: fe:forholdsmessighet
+    rolle: begrenses av
+- id: stbt:bortfall-av-ervervsgrunnlag
+  anbefalt_term:
+    nb: bortfall av grunnlaget for erverv
+    nn: bortfall av grunnlaget for erverv
+  definisjon: avgjørelse eller erkjennelse av at forholdet som ga norsk statsborgerskap ved fødsel eller adopsjon,
+    ikke foreligger
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 6 første ledd
+  merknad: Termen er et forslag. Barnet anses for aldri å ha vært norsk, med mindre det blir statsløst eller er
+    fylt 18 år. Etter søknad kan det vedtas at bortfallet ikke skal få betydning, når særlige grunner foreligger
+  opphav: stbl. §§ 6 og 22 tredje ledd
+  status: usikker
+  begrepseier: tap-og-tilbakekall
+  samling: statsborgerskap-tap
+- id: stbt:ervervsgrunnlag
+  anbefalt_term:
+    nb: grunnlag for erverv av norsk statsborgerskap
+    nn: grunnlag for erverv av norsk statsborgarskap
+  definisjon: inndeling av hvordan en person har ervervet norsk statsborgerskap
+  forhold_til_kilde: egendefinert
+  merknad: Termen er et forslag. Avgjør blant annet om tap ved fravær (§ 24) og bortfall (§ 6) kan gjelde
+  opphav: stbl. kapittel 2 til 4 A
+  status: usikker
+  begrepseier: tap-og-tilbakekall
+  samling: statsborgerskap-tap
+  kodeverdier:
+  - kode: FODSEL
+    term: ved fødsel (§ 4)
+  - kode: ADOPSJON
+    term: ved adopsjon (§ 5)
+    begrep: ext:adopsjon
+  - kode: SOKNAD
+    term: etter søknad (kapittel 3)
+  - kode: MELDING
+    term: ved melding (kapittel 4 og 4 A)
+  - kode: BARN_VED_MELDING
+    term: automatisk som barn av en som erverver ved melding (§ 22)
+- id: stbt:vedtak-om-tap
+  anbefalt_term:
+    nb: vedtak om tap av statsborgerskap
+    nn: vedtak om tap av statsborgarskap
+  definisjon: avgjørelse i en sak om tap av, løsning fra, tilbakekall av eller å beholde norsk statsborgerskap
+  forhold_til_kilde: egendefinert
+  merknad: Treffes av UDI, av departementet (§ 26 b) eller av domstolen (§ 26 a)
+  opphav: stbl. §§ 24 til 27
+  status: forslag
+  begrepseier: tap-og-tilbakekall
+  samling: statsborgerskap-tap
+  generisk:
+  - ext:enkeltvedtak
+  partitiv:
+  - fe:vedtakstidspunkt
+  - fe:vedtaksutfall

@@ -1,0 +1,139 @@
+# FORELØPIG UTKAST til demo, generert fra mellomformatet og deretter redigert for hånd.
+id: https://example.org/udi/linkmldemo/logisk/felles
+name: felles
+title: Felles modellelementer (utvalg til demo)
+description: Felles modellelementer som skjemaene for sakstypene importerer. Utvalget er det statsborgerskap trenger.
+license: CC-BY-4.0
+version: 0.1.0
+prefixes:
+  linkml: https://w3id.org/linkml/
+  xsd: http://www.w3.org/2001/XMLSchema#
+  fe: https://example.org/udi/felles/begrep/
+  stb: https://example.org/udi/statsborgerskap/begrep/
+  stbm: https://example.org/udi/statsborgerskap-melding/begrep/
+  stbt: https://example.org/udi/statsborgerskap-tap/begrep/
+  udi: https://example.org/udi/linkmldemo/logisk/felles/
+default_prefix: udi
+default_range: string
+imports:
+- linkml:types
+types:
+  Belop:
+    typeof: decimal
+    uri: xsd:decimal
+    description: Beløp i norske kroner
+  Varighet:
+    typeof: string
+    uri: xsd:duration
+    description: Varighet etter ISO 8601, for eksempel P7Y
+classes:
+  MuntligNorskprove:
+    exact_mappings:
+    - fe:muntlig-norskprove
+    description: prøve som måler ferdigheter i å snakke og forstå norsk
+    attributes:
+      provedato:
+        range: date
+      ferdighetsniva:
+        range: Ferdighetsniva
+        required: true
+        exact_mappings:
+        - fe:ferdighetsniva
+  Oppholdsperiode:
+    exact_mappings:
+    - fe:oppholdsperiode
+    description: sammenhengende tidsrom der en person har oppholdt seg i riket med én oppholdstillatelse
+    attributes:
+      tidsrom:
+        range: Periode
+        required: true
+      oppholdstillatelse:
+        range: Oppholdstillatelse
+        required: true
+        inlined: false
+  Oppholdstillatelse:
+    exact_mappings:
+    - fe:oppholdstillatelse
+    description: tillatelse som gir en utlending rett til å oppholde seg i riket utover tre måneder, og eventuelt
+      til å ta arbeid
+    attributes:
+      tillatelsesidentifikator:
+        range: string
+        required: true
+  Periode:
+    title: Periode
+    attributes:
+      fraOgMed:
+        range: date
+        required: true
+      tilOgMed:
+        range: date
+  Person:
+    exact_mappings:
+    - https://concept-catalog.fellesdatakatalog.digdir.no/collections/974761076/concepts/b57408ba-d96a-11e6-8d9b-005056821322
+    description: fysisk person
+    attributes:
+      personidentifikator:
+        range: string
+        required: true
+      fodselsdato:
+        range: date
+        required: true
+        exact_mappings:
+        - https://concept-catalog.fellesdatakatalog.digdir.no/collections/974761076/concepts/5138da10-be20-11e6-8004-005056825ca0
+      statsborgerskap:
+        range: string
+        multivalued: true
+        exact_mappings:
+        - https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760746/concepts/d106e0a9-b865-4746-bd2d-89974f709e23
+  Politiattest:
+    exact_mappings:
+    - fe:politiattest
+    description: attest fra politiet om registrerte straffbare forhold om en person
+    attributes:
+      utstedelsesdato:
+        range: date
+  Straffereaksjon:
+    exact_mappings:
+    - fe:straffereaksjon
+    description: straff eller strafferettslig særreaksjon som er ilagt en person
+    attributes:
+      ileggelsesdato:
+        range: date
+      karenstidUtloper:
+        range: date
+        exact_mappings:
+        - fe:karenstid
+enums:
+  Ferdighetsniva:
+    description: trinn på en skala som angir hvor godt en person behersker et språk
+    enum_uri: fe:ferdighetsniva
+    permissible_values:
+      A1:
+        description: A1
+      A2:
+        description: A2
+      B1:
+        description: B1
+      B2:
+        description: B2
+      C1:
+        description: C1
+  Proveresultat:
+    description: utfallet av en avlagt prøve
+    enum_uri: fe:proveresultat
+    permissible_values:
+      BESTATT:
+        description: bestått
+      IKKE_BESTATT:
+        description: ikke bestått
+  Vedtaksutfall:
+    description: resultatet av et vedtak
+    enum_uri: fe:vedtaksutfall
+    permissible_values:
+      INNVILGET:
+        description: innvilgelse
+        meaning: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760746/concepts/8108584e-ad16-45f0-8a3c-391f5a6aacea
+      AVSLATT:
+        description: avslag
+        meaning: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760746/concepts/4d1921f3-9b67-43c9-b378-e2fdb4df8d8c

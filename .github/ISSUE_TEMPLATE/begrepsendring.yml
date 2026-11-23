@@ -1,0 +1,15 @@
+name: Endring i et begrep
+description: Foreslå ny term, ny definisjon eller ny relasjon for et begrep
+labels: [begrep]
+body:
+  - type: input
+    id: begrep
+    attributes: {label: Begrep (ID), placeholder: "fe:straffereaksjon"}
+    validations: {required: true}
+  - type: textarea
+    id: endring
+    attributes: {label: Hva bør endres, og hvorfor?}
+    validations: {required: true}
+  - type: input
+    id: kilde
+    attributes: {label: Kilde, description: Lovbestemmelse, rundskriv eller annen kilde}

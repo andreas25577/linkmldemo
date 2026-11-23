@@ -1,0 +1,110 @@
+# FORELØPIG UTKAST til demo, generert fra mellomformatet og deretter redigert for hånd.
+id: https://example.org/udi/linkmldemo/logisk/statsborgerskap-melding
+name: statsborgerskap-melding
+title: Melding om norsk statsborgerskap (foreløpig utkast)
+description: Foreløpig utkast utledet av en begrepssamling som ikke er godkjent. Avgrenset til melding etter statsborgerloven
+  kapittel 4 og 4 A.
+license: CC-BY-4.0
+version: 0.1.0
+prefixes:
+  linkml: https://w3id.org/linkml/
+  xsd: http://www.w3.org/2001/XMLSchema#
+  fe: https://example.org/udi/felles/begrep/
+  stb: https://example.org/udi/statsborgerskap/begrep/
+  stbm: https://example.org/udi/statsborgerskap-melding/begrep/
+  stbt: https://example.org/udi/statsborgerskap-tap/begrep/
+  udi: https://example.org/udi/linkmldemo/logisk/statsborgerskap-melding/
+default_prefix: udi
+default_range: string
+imports:
+- linkml:types
+- felles
+annotations:
+  sakstype: statsborgerskap-melding
+classes:
+  MeldingOmStatsborgerskap:
+    exact_mappings:
+    - stbm:melding-om-statsborgerskap
+    description: henvendelse der en person som fyller vilkårene i loven, gir beskjed om at vedkommende vil bli eller
+      igjen bli norsk statsborger
+    attributes:
+      meldingsidentifikator:
+        range: string
+        required: true
+      melder:
+        range: Person
+        required: true
+        annotations:
+          egenskapstype: rolle
+      type:
+        range: TypeMelding
+        required: true
+        exact_mappings:
+        - stbm:type-melding
+      innsendt:
+        range: date
+        required: true
+      bosattIRiketFra:
+        range: date
+        exact_mappings:
+        - fe:bosatt-i-riket
+      identitetErKlarlagt:
+        range: boolean
+        exact_mappings:
+        - fe:klarlagt-identitet
+      harOppholdForFylte22:
+        range: boolean
+        exact_mappings:
+        - stbm:opphold-for-fylte-22
+      politiattest:
+        range: Politiattest
+        inlined: true
+      straffereaksjon:
+        range: Straffereaksjon
+        multivalued: true
+        inlined: false
+      barn:
+        range: Person
+        multivalued: true
+        annotations:
+          egenskapstype: rolle
+        exact_mappings:
+        - stbm:erverv-for-barn-ved-melding
+      vedtak:
+        range: VedtakOmMelding
+        inlined: false
+  VedtakOmMelding:
+    exact_mappings:
+    - stbm:vedtak-om-melding
+    description: avgjørelse om at en melding om norsk statsborgerskap godtas eller ikke
+    attributes:
+      vedtakstidspunkt:
+        range: date
+        required: true
+        exact_mappings:
+        - fe:vedtakstidspunkt
+      vedtaksutfall:
+        range: Vedtaksutfall
+        required: true
+        exact_mappings:
+        - fe:vedtaksutfall
+      nasjonaleInteresserTalerMot:
+        range: boolean
+        exact_mappings:
+        - fe:grunnleggende-nasjonale-interesser
+enums:
+  TypeMelding:
+    description: inndeling av meldinger om statsborgerskap etter hvilken bestemmelse de bygger på
+    enum_uri: stbm:type-melding
+    permissible_values:
+      NORDISK_ERVERV:
+        description: dansk, finsk, islandsk eller svensk statsborger som har vært bosatt i riket de siste syv årene
+          (§ 20)
+        meaning: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760746/concepts/f9e2d354-1e20-49f3-961f-df2a8233a146
+      NORDISK_GJENERVERV:
+        description: tidligere norsk borger som siden bare har vært statsborger av et annet nordisk land (§ 21)
+        meaning: stbm:gjenerverv
+      GJENERVERV:
+        description: tidligere norsk borger som tapte statsborgerskapet ved erverv av, eller manglende løsning fra,
+          et annet statsborgerskap (§ 22 a)
+        meaning: stbm:gjenerverv

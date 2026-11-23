@@ -1,0 +1,317 @@
+# FORELØPIG UTKAST til demo. Begrepseierne er fiktive. Ikke godkjent faglig eller juridisk.
+begreper:
+- id: stb:soknad-om-statsborgerskap
+  anbefalt_term:
+    nb: søknad om norsk statsborgerskap
+    nn: søknad om norsk statsborgarskap
+  tillatt_term:
+  - statsborgersøknad
+  definisjon: henvendelse der en person ber om å få norsk statsborgerskap
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 7 første ledd
+  opphav: stbl. § 7
+  status: forslag
+  begrepseier: statsborgerskap
+  samling: statsborgerskap
+  assosiativ:
+  - til: ext:soker
+    rolle: fremmes av
+  - til: stb:vedtak-om-statsborgerskap
+    rolle: avgjøres ved
+  - til: ext:identitetsdokument
+    rolle: dokumenteres med
+  - til: fe:politiattest
+    rolle: følges av
+  - til: fe:oppholdsperiode
+    rolle: bygger på
+  - til: fe:muntlig-norskprove
+    rolle: dokumenteres med
+  - til: stb:statsborgerprove
+    rolle: dokumenteres med
+  - til: fe:straffereaksjon
+    rolle: påvirkes av
+  - til: stb:oppmote
+    rolle: inngis ved
+  - til: fe:klarlagt-identitet
+    rolle: forutsetter
+  - til: fe:bosatt-i-riket
+    rolle: forutsetter
+  - til: fe:ankomst-til-riket
+    rolle: bygger på
+  - til: stb:unntak-fra-provekrav
+    rolle: kan ha
+  partitiv:
+  - fe:soknadstidspunkt
+  - fe:saksbehandlingsgebyr
+  - stb:grunnlag-for-oppholdstidskrav
+  - stb:oppholdstid
+  generisk:
+  - ext:soknad
+- id: stb:vedtak-om-statsborgerskap
+  anbefalt_term:
+    nb: vedtak om norsk statsborgerskap
+    nn: vedtak om norsk statsborgarskap
+  definisjon: avgjørelse som innvilger eller avslår en søknad om norsk statsborgerskap
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 27 første ledd
+  merknad: Utlendingsdirektoratet avgjør søknaden
+  opphav: stbl. § 27
+  status: forslag
+  begrepseier: statsborgerskap
+  samling: statsborgerskap
+  partitiv:
+  - fe:vedtakstidspunkt
+  - fe:vedtaksutfall
+  generisk:
+  - ext:enkeltvedtak
+- id: stb:vilkar-for-statsborgerskap
+  anbefalt_term:
+    nb: vilkår for norsk statsborgerskap
+    nn: vilkår for norsk statsborgarskap
+  definisjon: betingelse som må være oppfylt for at en søker har rett til norsk statsborgerskap
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 7 første ledd
+  merknad: 'Samlebegrep for bokstav a til g: klarlagt identitet, alder, bosetting, permanent oppholdstillatelse,
+    oppholdstid, norsk og statsborgerprøve, straffbare forhold'
+  opphav: stbl. § 7
+  status: forslag
+  begrepseier: statsborgerskap
+  samling: statsborgerskap
+- id: stb:oppholdstid
+  anbefalt_term:
+    nb: oppholdstid
+    nn: opphaldstid
+  definisjon: samlet varighet av oppholdsperiodene som medregnes ved en søknad om norsk statsborgerskap
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 7 første ledd bokstav e og tredje ledd
+  merknad: Beregningsreglene, blant annet fradrag for utenlandsopphold, står i forskriften kapittel 3
+  opphav: stbl. § 7 e, forskriften kap. 3
+  status: forslag
+  begrepseier: statsborgerskap
+  samling: statsborgerskap
+  partitiv:
+  - fe:oppholdsperiode
+- id: stb:grunnlag-for-oppholdstidskrav
+  anbefalt_term:
+    nb: grunnlag for oppholdstidskrav
+    nn: grunnlag for opphaldstidskrav
+  definisjon: bestemmelse som fastsetter hvilket krav til oppholdstid som gjelder for en søker
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 7 og §§ 10 til 17
+  merknad: Særgruppene i forskriften (§ 18) er ikke med. For barn under to år etter §§ 15 og 17 gjelder ikke kravet
+    om oppholdstid
+  opphav: stbl. §§ 7, 10-17
+  status: forslag
+  begrepseier: statsborgerskap
+  samling: statsborgerskap
+  kodeverdier:
+  - kode: P7
+    term: hovedregel, åtte av siste elleve år (§ 7)
+  - kode: P10
+    term: tilstrekkelig inntekt, seks av siste ti år (§ 10)
+  - kode: P11
+    term: ankommet riket før fylte 18 år, fem av siste syv år (§ 11)
+  - kode: P12
+    term: gift, registrert partner eller samboer med norsk statsborger (§ 12)
+  - kode: P13
+    term: nordisk statsborger, siste to år (§ 13)
+    begrep: ext:nordisk-statsborger
+  - kode: P14
+    term: omfattet av EØS-avtalen eller EFTA-konvensjonen, siste tre år (§ 14)
+  - kode: P15
+    term: tidligere norsk borger, siste to år (§ 15)
+  - kode: P16
+    term: statsløs, siste tre år (§ 16)
+    begrep: fe:statslos
+  - kode: P16A
+    term: anerkjent flyktning, syv av siste ti år (§ 16 a)
+  - kode: P17
+    term: barn som biperson, siste to år (§ 17)
+    begrep: stb:biperson
+- id: stb:statsborgerprove
+  anbefalt_term:
+    nb: statsborgerprøve
+    nn: statsborgarprøve
+  definisjon: prøve i samfunnskunnskap som den som søker norsk statsborgerskap må bestå
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 8
+  merknad: Loven definerer ikke prøven. Innhold og språk må hentes fra forskriften kap. 4 og integreringsregelverket
+  opphav: stbl. § 8
+  status: usikker
+  begrepseier: statsborgerskap
+  samling: statsborgerskap
+  partitiv:
+  - fe:proveresultat
+- id: stb:unntak-fra-provekrav
+  anbefalt_term:
+    nb: unntak fra prøvekrav
+    nn: unntak frå prøvekrav
+  definisjon: forhold som gjør at en søker ikke må oppfylle kravet om muntlig prøve i norsk eller statsborgerprøve
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 8 annet ledd, statsborgerforskriften kap. 4
+  merknad: Unntaksgrunnene er ikke kartlagt
+  opphav: forskriften §§ 4-1 til 4-3
+  status: usikker
+  begrepseier: statsborgerskap
+  samling: statsborgerskap
+- id: stb:oppmote
+  anbefalt_term:
+    nb: innlevering av søknad
+    nn: innlevering av søknad
+  tillatt_term:
+  - oppmøte hos politiet
+  definisjon: handling der søkeren inngir søknaden til politiet eller norsk utenriksstasjon
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 27 første ledd
+  merknad: Prosessbegrep. I modellen bare som en dato
+  opphav: stbl. § 27
+  status: forslag
+  begrepseier: statsborgerskap
+  samling: statsborgerskap
+- id: stb:biperson
+  anbefalt_term:
+    nb: biperson
+    nn: biperson
+  definisjon: barn under 18 år som søker norsk statsborgerskap på grunnlag av at en forelder erverver eller har
+    ervervet det
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 17 første ledd
+  merknad: Barnet må ha klarlagt identitet, være bosatt og ikke være ilagt straff. Alderen på søknadstidspunktet
+    er avgjørende. Barn som er gift eller registrert partner, omfattes ikke. Gjelder også når forelderen har ervervet
+    ved melding (§§ 20, 21 og 22 a). Gjenbrukssøket 2026-11-19 ga ingen treff
+  opphav: stbl. § 17
+  status: forslag
+  begrepseier: statsborgerskap
+  samling: statsborgerskap
+  assosiativ:
+  - til: ext:forelder
+    rolle: har rett gjennom
+- id: stb:dispensasjon-statsborgerskap
+  anbefalt_term:
+    nb: dispensasjon fra ervervsvilkår
+    nn: dispensasjon frå ervervsvilkår
+  definisjon: unntak i den enkelte sak, til gunst for søkeren, fra vilkårene for erverv av norsk statsborgerskap
+    etter søknad
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 19
+  merknad: Krever særlig sterke grunner. Skatteetatens begrep dispensasjon er generelt og gjelder et annet regelverk
+  opphav: stbl. § 19
+  status: forslag
+  begrepseier: statsborgerskap
+  samling: statsborgerskap
+  se_ogsa:
+  - ext:dispensasjon
+- id: stbm:melding-om-statsborgerskap
+  anbefalt_term:
+    nb: melding om norsk statsborgerskap
+    nn: melding om norsk statsborgarskap
+  definisjon: henvendelse der en person som fyller vilkårene i loven, gir beskjed om at vedkommende vil bli eller
+    igjen bli norsk statsborger
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 20 første ledd
+  merknad: Gir rett til statsborgerskap når vilkårene er oppfylt, uten skjønn. Inngis til politiet, gjenerverv etter
+    § 22 a også til utenriksstasjon. UDI avgjør om meldingen godtas
+  opphav: stbl. §§ 20, 21, 22 a og 27
+  status: forslag
+  begrepseier: statsborgerskap
+  samling: statsborgerskap-melding
+  partitiv:
+  - stbm:type-melding
+  assosiativ:
+  - til: fe:politiattest
+    rolle: følges av
+  - til: fe:bosatt-i-riket
+    rolle: forutsetter
+  - til: stbm:vedtak-om-melding
+    rolle: avgjøres ved
+  - til: stbm:erverv-for-barn-ved-melding
+    rolle: kan gi
+- id: stbm:type-melding
+  anbefalt_term:
+    nb: type melding om statsborgerskap
+    nn: type melding om statsborgarskap
+  definisjon: inndeling av meldinger om statsborgerskap etter hvilken bestemmelse de bygger på
+  forhold_til_kilde: egendefinert
+  merknad: Termen er et forslag
+  opphav: stbl. §§ 20, 21 og 22 a
+  status: usikker
+  begrepseier: statsborgerskap
+  samling: statsborgerskap-melding
+  kodeverdier:
+  - kode: NORDISK_ERVERV
+    term: dansk, finsk, islandsk eller svensk statsborger som har vært bosatt i riket de siste syv årene (§ 20)
+    begrep: ext:nordisk-statsborger
+  - kode: NORDISK_GJENERVERV
+    term: tidligere norsk borger som siden bare har vært statsborger av et annet nordisk land (§ 21)
+    begrep: stbm:gjenerverv
+  - kode: GJENERVERV
+    term: tidligere norsk borger som tapte statsborgerskapet ved erverv av, eller manglende løsning fra, et annet
+      statsborgerskap (§ 22 a)
+    begrep: stbm:gjenerverv
+- id: stbm:gjenerverv
+  anbefalt_term:
+    nb: gjenerverv av norsk statsborgerskap
+    nn: gjenerverv av norsk statsborgarskap
+  definisjon: erverv av norsk statsborgerskap for en person som tidligere har tapt det
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 22 a første ledd
+  merknad: Ved gjenerverv etter § 22 a må melderen ha klarlagt identitet og ikke være ilagt eller siktet for ubetinget
+    fengsel, forvaring eller særreaksjon. Uttømmende og utvidet politiattest skal følge meldingen
+  opphav: stbl. §§ 21 og 22 a
+  status: forslag
+  begrepseier: statsborgerskap
+  samling: statsborgerskap-melding
+  assosiativ:
+  - til: fe:klarlagt-identitet
+    rolle: forutsetter
+  - til: stbm:opphold-for-fylte-22
+    rolle: kan kreve
+- id: stbm:opphold-for-fylte-22
+  anbefalt_term:
+    nb: opphold i Norge før fylte 22 år
+    nn: opphald i Noreg før fylte 22 år
+  definisjon: krav om at en melder om gjenerverv må sannsynliggjøre å ha hatt opphold i Norge i til sammen seks
+    måneder før fylte 22 år
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 22 a fjerde ledd
+  merknad: Termen er et forslag. Gjelder ikke den som tidligere har ervervet norsk statsborgerskap ved søknad
+  opphav: stbl. § 22 a fjerde ledd
+  status: usikker
+  begrepseier: statsborgerskap
+  samling: statsborgerskap-melding
+- id: stbm:erverv-for-barn-ved-melding
+  anbefalt_term:
+    nb: erverv for barn ved melding
+    nn: erverv for barn ved melding
+  definisjon: automatisk erverv av norsk statsborgerskap for et barn under 18 år når en forelder erverver ved melding
+    etter § 20 eller § 21
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 22 første ledd
+  merknad: Barnet må være bosatt i riket. Gjelder ikke barn som er gift eller registrert partner. Barn av den som
+    gjenerverver etter § 22 a kan søke som biperson etter § 17
+  opphav: stbl. § 22
+  status: forslag
+  begrepseier: statsborgerskap
+  samling: statsborgerskap-melding
+  assosiativ:
+  - til: ext:forelder
+    rolle: erverver gjennom
+- id: stbm:vedtak-om-melding
+  anbefalt_term:
+    nb: vedtak om melding om statsborgerskap
+    nn: vedtak om melding om statsborgarskap
+  definisjon: avgjørelse om at en melding om norsk statsborgerskap godtas eller ikke
+  forhold_til_kilde: basert
+  kilde: statsborgerloven § 27 første ledd
+  opphav: stbl. § 27 første ledd
+  status: forslag
+  begrepseier: statsborgerskap
+  samling: statsborgerskap-melding
+  generisk:
+  - ext:enkeltvedtak
+  partitiv:
+  - fe:vedtakstidspunkt
+  - fe:vedtaksutfall
+  assosiativ:
+  - til: fe:grunnleggende-nasjonale-interesser
+    rolle: kan avslås av hensyn til

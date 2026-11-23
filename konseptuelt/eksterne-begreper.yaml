@@ -1,0 +1,106 @@
+# FORELØPIG UTKAST til demo. Begrepseierne er fiktive. Ikke godkjent faglig eller juridisk.
+eksterne_begreper:
+- id: ext:adopsjon
+  term: adopsjon
+  eier: Bergen kommune
+  uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections/964338531/concepts/0c1bf90d-43e0-4d23-85bc-28a0a5693d9f
+- id: ext:avslag
+  term: avslag
+  eier: Utlendingsdirektoratet
+  uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760746/concepts/4d1921f3-9b67-43c9-b378-e2fdb4df8d8c
+- id: ext:bosatt-i-norge
+  term: bosatt i Norge
+  eier: Skatteetaten
+  uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974761076/concepts/5138d9e2-be20-11e6-8004-005056825ca0
+- id: ext:dispensasjon
+  term: dispensasjon
+  eier: Skatteetaten
+  uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974761076/concepts/d328ae1a-d721-11e6-9fda-005056821322
+- id: ext:enkeltvedtak
+  term: enkeltvedtak
+  eier: Utlendingsdirektoratet
+  uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760746/concepts/97e7fd95-b247-450c-ba4b-4f1396ed9a6f
+- id: ext:fodselsdato
+  term: fødselsdato
+  eier: Skatteetaten
+  uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974761076/concepts/5138da10-be20-11e6-8004-005056825ca0
+- id: ext:forelder
+  term: forelder
+  eier: Barne-, ungdoms- og familiedirektoratet
+  uri: https://data.bufdir.no/begrep/ddcf24c8-937a-4380-a383-81d1ad2c6509
+- id: ext:formue
+  term: formue
+  eier: Brønnøysundregistrene
+  uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760673/concepts/c5adf681-6b10-453a-9145-de05b3ab1b2c
+- id: ext:fysisk-person
+  term: fysisk person
+  eier: Skatteetaten
+  uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974761076/concepts/b57408ba-d96a-11e6-8d9b-005056821322
+- id: ext:gebyr
+  term: gebyr
+  eier: Brønnøysundregistrene
+  uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760673/concepts/c81236e6-ec77-4fc8-b38e-5adba93fa902
+- id: ext:identitetsdokument
+  term: identitetsdokument
+  eier: Utlendingsdirektoratet
+  uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760746/concepts/ee9e81d7-8eb2-4102-8d03-4f8df4bb74b6
+- id: ext:innvilgelse
+  term: innvilgelse
+  eier: Utlendingsdirektoratet
+  uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760746/concepts/8108584e-ad16-45f0-8a3c-391f5a6aacea
+- id: ext:kvalifiseringsstonad
+  term: kvalifiseringsstønad
+  eier: Skatteetaten
+  uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974761076/concepts/6c325cf8-ff95-11e8-a756-005056823b15
+- id: ext:nordisk-statsborger
+  term: nordisk statsborger
+  eier: Utlendingsdirektoratet
+  uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760746/concepts/f9e2d354-1e20-49f3-961f-df2a8233a146
+- id: ext:oppholdstillatelse-skatt
+  term: oppholdstillatelse
+  eier: Skatteetaten
+  uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974761076/concepts/88804c3d-ff43-11e6-9d97-005056825ca0
+- id: ext:organisasjonsnummer
+  term: organisasjonsnummer
+  eier: Brønnøysundregistrene
+  uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760673/concepts/7751b3fa-bdb6-4ff3-94e1-67063309a536
+- id: ext:personopplysninger
+  term: personopplysninger
+  eier: Utlendingsdirektoratet
+  uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760746/concepts/bdb0251d-3a89-4c04-9e52-3f54b8cf7949
+- id: ext:referanseperson
+  term: referanseperson i familieinnvandring
+  eier: Utlendingsdirektoratet
+  uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760746/concepts/b48c4e47-1335-4d35-89a1-1bdfcfa6a0d6
+- id: ext:sannsynliggjort-identitet
+  term: sannsynliggjort identitet
+  eier: Utlendingsdirektoratet
+  uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760746/concepts/51c34c3e-6838-49ef-8f35-94491513f3fa
+- id: ext:soker
+  term: søker
+  eier: Utlendingsdirektoratet
+  uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760746/concepts/0c87a416-0363-4361-8b43-ac4441f932cb
+- id: ext:soknad
+  term: søknad
+  eier: Brønnøysundregistrene
+  uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760673/concepts/7b59051b-f400-48d7-831d-5a973d792fa1
+- id: ext:statsborgerskap
+  term: statsborgerskap
+  eier: Utlendingsdirektoratet
+  uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760746/concepts/d106e0a9-b865-4746-bd2d-89974f709e23
+- id: ext:stipend
+  term: stipend
+  eier: Skatteetaten
+  uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974761076/concepts/8ea2df62-7662-11e6-a74e-7e18b36b3fd9
+- id: ext:utlending
+  term: utlending
+  eier: Utlendingsdirektoratet
+  uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760746/concepts/0f7d35bc-8d72-4f58-b571-cb3ecfd66697
+- id: ext:virksomhet
+  term: virksomhet
+  eier: Brønnøysundregistrene
+  uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760673/concepts/c5fee487-68ab-4281-968d-2bc2dac7c336
+- id: ext:yrke
+  term: yrke
+  eier: Skatteetaten
+  uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974761076/concepts/dcfb47dd-e484-11e6-9cb3-005056821322

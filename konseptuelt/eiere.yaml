@@ -1,0 +1,27 @@
+# FORELØPIG UTKAST til demo. Begrepseierne er fiktive. Ikke godkjent faglig eller juridisk.
+eiere:
+- id: informasjonsforvaltning
+  kontakt: https://example.org/udi/kontakt/informasjonsforvaltning
+  navn: Seksjon for informasjonsforvaltning
+  github: '@andreas25577'
+  beskrivelse: Fiktiv eier for demoen. Felles grunnbegreper som søknad, vedtak, person og perioder.
+- id: vandel-og-sikkerhet
+  kontakt: https://example.org/udi/kontakt/vandel-og-sikkerhet
+  navn: Fagenhet for vandel og sikkerhet
+  github: '@andreas25577'
+  beskrivelse: Fiktiv eier for demoen. Straff, politiattest, vandel og nasjonale interesser.
+- id: identitet
+  kontakt: https://example.org/udi/kontakt/identitet
+  navn: Fagenhet for identitet
+  github: '@andreas25577'
+  beskrivelse: Fiktiv eier for demoen. Identitet, identitetsdokumenter og personopplysninger.
+- id: statsborgerskap
+  kontakt: https://example.org/udi/kontakt/statsborgerskap
+  navn: Fagenhet for statsborgerskap
+  github: '@andreas25577'
+  beskrivelse: Fiktiv eier for demoen. Søknad og melding om statsborgerskap.
+- id: tap-og-tilbakekall
+  kontakt: https://example.org/udi/kontakt/tap-og-tilbakekall
+  navn: Fagenhet for tap og tilbakekall
+  github: '@andreas25577'
+  beskrivelse: Fiktiv eier for demoen. Tap, løsning og tilbakekall av statsborgerskap.

@@ -1,0 +1,190 @@
+id: https://example.org/udi/linkmldemo/metaskjema/begrep
+name: begrep
+title: Begrepsbeskrivelser etter SKOS-AP-NO-Begrep, med begrepseier
+description: >-
+  Metaskjema for begrepsfilene i konseptuelt/. Følger hovedtrekkene i SKOS-AP-NO-Begrep 2.0
+  (term, definisjon med forhold til kilde, merknad, relasjoner) og utvider med begrepseier,
+  som er et fagmiljø med ansvar for begrepet. Begrepseier er en UDI-utvidelse, ikke en del av spesifikasjonen.
+license: CC-BY-4.0
+version: 0.1.0
+prefixes:
+  linkml: https://w3id.org/linkml/
+  skos: http://www.w3.org/2004/02/skos/core#
+  skosno: https://data.norge.no/vocabulary/skosno#
+  dct: http://purl.org/dc/terms/
+  euvoc: http://publications.europa.eu/ontology/euvoc#
+  rws: https://data.norge.no/vocabulary/relationship-with-source-type#
+  udi: https://example.org/udi/linkmldemo/vokabular#
+default_prefix: udi
+default_range: string
+imports:
+  - linkml:types
+
+classes:
+  Begrepsfil:
+    tree_root: true
+    description: En fil i konseptuelt/. Kan holde begreper, eksterne begreper, begrepseiere og samlinger.
+    attributes:
+      begreper:
+        range: Begrep
+        multivalued: true
+        inlined_as_list: true
+      eksterne_begreper:
+        range: EksterntBegrep
+        multivalued: true
+        inlined_as_list: true
+      eiere:
+        range: Begrepseier
+        multivalued: true
+        inlined_as_list: true
+      samlinger:
+        range: Begrepssamling
+        multivalued: true
+        inlined_as_list: true
+
+  Begrep:
+    class_uri: skos:Concept
+    description: Et begrep beskrevet etter SKOS-AP-NO-Begrep.
+    attributes:
+      id:
+        identifier: true
+        description: CURIE, for eksempel fe:politiattest. Prefikset sier hvilken samling begrepet hører til.
+        pattern: "^(fe|stb|stbm|stbt):[a-z0-9-]+$"
+      anbefalt_term:
+        range: Term
+        required: true
+        inlined: true
+        slot_uri: skos:prefLabel
+      tillatt_term:
+        multivalued: true
+        slot_uri: skos:altLabel
+      definisjon:
+        required: true
+        slot_uri: euvoc:xlDefinition
+      forhold_til_kilde:
+        range: ForholdTilKilde
+        required: true
+        slot_uri: skosno:relationshipWithSource
+      kilde:
+        slot_uri: dct:source
+      merknad:
+        slot_uri: skos:scopeNote
+      opphav:
+        description: Hvor i regelverket begrepet er utledet fra.
+      status:
+        range: Begrepsstatus
+        required: true
+      begrepseier:
+        range: Begrepseier
+        required: true
+        description: Fagmiljøet som har ansvar for begrepet og godkjenner endringer i det.
+      samling:
+        range: Begrepssamling
+        required: true
+      kodeverdier:
+        range: Kodeverdi
+        multivalued: true
+        inlined_as_list: true
+        description: Når begrepet er en inndeling, listes verdiene her. De blir kodelister i de logiske modellene.
+      generisk:
+        multivalued: true
+        description: Overbegrep (generisk relasjon). Begrep-ID eller ext:nøkkel.
+        slot_uri: skosno:hasGenericConceptRelation
+      partitiv:
+        multivalued: true
+        description: Begreper dette begrepet har som del (partitiv relasjon).
+        slot_uri: skosno:hasPartitiveConceptRelation
+      assosiativ:
+        range: Assosiasjon
+        multivalued: true
+        inlined_as_list: true
+        slot_uri: skosno:hasAssociativeConceptRelation
+      naer:
+        multivalued: true
+        slot_uri: skos:closeMatch
+      se_ogsa:
+        multivalued: true
+        slot_uri: dct:relation
+
+  Term:
+    attributes:
+      nb:
+        required: true
+      nn: {}
+
+  Kodeverdi:
+    attributes:
+      kode:
+        required: true
+        pattern: "^[A-Z0-9_]+$"
+      term:
+        required: true
+      begrep:
+        description: Begrepet kodeverdien står for, når det finnes.
+
+  Assosiasjon:
+    attributes:
+      til:
+        required: true
+      rolle:
+        required: true
+
+  EksterntBegrep:
+    description: Begrep i Felles datakatalog som gjenbrukes.
+    attributes:
+      id:
+        identifier: true
+        pattern: "^ext:[a-z0-9-]+$"
+      term:
+        required: true
+      eier:
+        required: true
+        description: Virksomheten som eier begrepet.
+      uri:
+        range: uri
+        required: true
+
+  Begrepseier:
+    attributes:
+      id:
+        identifier: true
+      navn:
+        required: true
+      github:
+        description: GitHub-bruker eller -team som godkjenner endringer, for eksempel @andreas25577.
+        required: true
+        pattern: "^@[A-Za-z0-9-]+(/[A-Za-z0-9-]+)?$"
+      kontakt:
+        description: Adresse til kontaktpunktet. Blir dcat:contactPoint på begrepene eieren har ansvar for.
+        range: uri
+        required: true
+      beskrivelse: {}
+
+  Begrepssamling:
+    class_uri: skos:Collection
+    attributes:
+      id:
+        identifier: true
+      prefiks:
+        required: true
+      tittel:
+        range: Term
+        inlined: true
+        required: true
+      base:
+        range: uri
+        required: true
+
+enums:
+  ForholdTilKilde:
+    description: Hvordan definisjonen forholder seg til kilden
+    permissible_values:
+      egendefinert: {meaning: rws:self-composed, description: Definisjonen er skrevet av UDI}
+      basert: {meaning: rws:derived-from-source, description: Definisjonen bygger på kilden}
+      sitat: {meaning: rws:direct-from-source, description: Definisjonen er sitert fra kilden}
+  Begrepsstatus:
+    description: Hvor langt begrepet har kommet i godkjenningen
+    permissible_values:
+      forslag: {description: Utkast som er utledet av regelverket}
+      usikker: {description: Term eller definisjon må vurderes faglig eller juridisk}
+      godkjent: {description: Godkjent av begrepseier}

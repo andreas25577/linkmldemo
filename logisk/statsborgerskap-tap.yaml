@@ -1,0 +1,150 @@
+# FORELØPIG UTKAST til demo, generert fra mellomformatet og deretter redigert for hånd.
+id: https://example.org/udi/linkmldemo/logisk/statsborgerskap-tap
+name: statsborgerskap-tap
+title: Tap av norsk statsborgerskap (foreløpig utkast)
+description: Foreløpig utkast utledet av en begrepssamling som ikke er godkjent. Avgrenset til tap av norsk statsborgerskap
+  etter statsborgerloven kapittel 5 og bortfall etter § 6.
+license: CC-BY-4.0
+version: 0.1.0
+prefixes:
+  linkml: https://w3id.org/linkml/
+  xsd: http://www.w3.org/2001/XMLSchema#
+  fe: https://example.org/udi/felles/begrep/
+  stb: https://example.org/udi/statsborgerskap/begrep/
+  stbm: https://example.org/udi/statsborgerskap-melding/begrep/
+  stbt: https://example.org/udi/statsborgerskap-tap/begrep/
+  udi: https://example.org/udi/linkmldemo/logisk/statsborgerskap-tap/
+default_prefix: udi
+default_range: string
+imports:
+- linkml:types
+- felles
+annotations:
+  sakstype: statsborgerskap-tap
+classes:
+  SakOmTapAvStatsborgerskap:
+    exact_mappings:
+    - stbt:tap-av-statsborgerskap
+    description: opphør av norsk statsborgerskap
+    attributes:
+      saksidentifikator:
+        range: string
+        required: true
+      statsborger:
+        range: Person
+        required: true
+        annotations:
+          egenskapstype: rolle
+        exact_mappings:
+        - fe:norsk-statsborgerskap
+      type:
+        range: TypeTap
+        required: true
+        exact_mappings:
+        - stbt:type-tap
+      opprettet:
+        range: date
+        required: true
+      soknadstidspunkt:
+        range: date
+        exact_mappings:
+        - fe:soknadstidspunkt
+      ervervetVed:
+        range: Ervervsgrunnlag
+        exact_mappings:
+        - stbt:ervervsgrunnlag
+      harAnnetStatsborgerskap:
+        range: boolean
+        exact_mappings:
+        - https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760746/concepts/d106e0a9-b865-4746-bd2d-89974f709e23
+      erBosattIRiket:
+        range: boolean
+        exact_mappings:
+        - fe:bosatt-i-riket
+      blirStatslos:
+        range: boolean
+        exact_mappings:
+        - fe:statslos
+      harTilstrekkeligTilknytning:
+        range: boolean
+        exact_mappings:
+        - stbt:tilstrekkelig-tilknytning
+      straffereaksjon:
+        range: Straffereaksjon
+        multivalued: true
+        inlined: false
+      barnSomBerores:
+        range: Person
+        multivalued: true
+        annotations:
+          egenskapstype: rolle
+      vedtak:
+        range: VedtakOmTap
+        inlined: false
+  VedtakOmTap:
+    exact_mappings:
+    - stbt:vedtak-om-tap
+    description: avgjørelse i en sak om tap av, løsning fra, tilbakekall av eller å beholde norsk statsborgerskap
+    attributes:
+      vedtakstidspunkt:
+        range: date
+        required: true
+        exact_mappings:
+        - fe:vedtakstidspunkt
+      vedtaksutfall:
+        range: Vedtaksutfall
+        required: true
+        exact_mappings:
+        - fe:vedtaksutfall
+      vedtaksorgan:
+        range: string
+      erUforholdsmessig:
+        range: boolean
+        exact_mappings:
+        - fe:forholdsmessighet
+      tapsdato:
+        range: date
+        exact_mappings:
+        - stbt:tap-av-statsborgerskap
+      fristForAnnetStatsborgerskap:
+        range: date
+        exact_mappings:
+        - stbt:losning-fra-statsborgerskap
+enums:
+  TypeTap:
+    description: inndeling av saker om tap av norsk statsborgerskap etter grunnlaget for tapet
+    enum_uri: stbt:type-tap
+    permissible_values:
+      FRAVAER:
+        description: tap ved fravær fra riket (§ 24)
+        meaning: stbt:tap-ved-fravaer
+      LOSNING:
+        description: løsning etter søknad (§ 25)
+        meaning: stbt:losning-fra-statsborgerskap
+      TILBAKEKALL:
+        description: tilbakekall av vedtak om statsborgerskap (§ 26)
+        meaning: stbt:tilbakekall-av-statsborgerskap
+      DOM:
+        description: tap ved dom for straffbare forhold (§ 26 a)
+        meaning: stbt:tap-ved-straffbare-forhold
+      NASJONALE_INTERESSER:
+        description: tap av hensyn til grunnleggende nasjonale interesser (§ 26 b)
+        meaning: stbt:tap-av-hensyn-til-nasjonale-interesser
+      BORTFALT_GRUNNLAG:
+        description: bortfall av grunnlaget for erverv ved fødsel eller adopsjon (§ 6)
+        meaning: stbt:bortfall-av-ervervsgrunnlag
+  Ervervsgrunnlag:
+    description: inndeling av hvordan en person har ervervet norsk statsborgerskap
+    enum_uri: stbt:ervervsgrunnlag
+    permissible_values:
+      FODSEL:
+        description: ved fødsel (§ 4)
+      ADOPSJON:
+        description: ved adopsjon (§ 5)
+        meaning: https://concept-catalog.fellesdatakatalog.digdir.no/collections/964338531/concepts/0c1bf90d-43e0-4d23-85bc-28a0a5693d9f
+      SOKNAD:
+        description: etter søknad (kapittel 3)
+      MELDING:
+        description: ved melding (kapittel 4 og 4 A)
+      BARN_VED_MELDING:
+        description: automatisk som barn av en som erverver ved melding (§ 22)
