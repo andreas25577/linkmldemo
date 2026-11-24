@@ -27,6 +27,14 @@ classes:
     - stbt:tap-av-statsborgerskap
     description: opphør av norsk statsborgerskap
     attributes:
+      politiattest:
+        description: Politiattest innhentet i saken
+        range: Politiattest
+        inlined: true
+        exact_mappings:
+        - fe:politiattest
+        annotations:
+          saerlig_kategori: true
       saksidentifikator:
         range: string
         required: true
