@@ -365,7 +365,7 @@ hjemler:
   presiserer: 29b-1
   type: INNHENTING_FRA_ANDRE
   avgiver:
-  - kompetanse-norge
+  - hkdir
   mottaker:
   - politiet
   - udi
@@ -379,6 +379,5 @@ hjemler:
   sakstyper:
   - statsborgerskap
   - statsborgerskap-tap
-  merknad: Forskriften nevner Kompetanse Norge, som er innlemmet i Direktoratet for høyere utdanning og kompetanse.
-    Bør oppdateres. For tap gjelder det tilbakekall etter § 26 annet ledd
+  merknad: Tenkt endring i demoen. Avgiver er endret fra Kompetanse Norge til HK-dir
   status: forslag
