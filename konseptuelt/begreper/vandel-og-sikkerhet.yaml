@@ -84,7 +84,7 @@ begreper:
   anbefalt_term:
     nb: straffereaksjon
     nn: straffereaksjon
-  definisjon: straff eller strafferettslig særreaksjon som er ilagt en person
+  definisjon: straff eller strafferettslig særreaksjon som er ilagt en person, også når reaksjonen er ilagt i utlandet
   forhold_til_kilde: basert
   kilde: statsborgerloven § 9
   opphav: stbl. § 9 (flyttet fra utkastet for statsborgerskap); også stbl. §§ 20, 22 a og 26 a
